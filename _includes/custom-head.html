@@ -1,0 +1,94 @@
+{%- comment -%}
+Custom head additions, included by our overridden _includes/head.html.
+
+Section 1 - search-engine privacy: noindex / nofollow / noarchive / nosnippet.
+Section 2 - active-nav detector: adds the page-link--active class to the
+            top-nav button matching the current page (or its parent
+            section, for sub-pages). Pure prefix-match logic.
+{%- endcomment -%}
+
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+
+<script>
+(function() {
+  if (typeof window === 'undefined') return;
+  document.addEventListener('DOMContentLoaded', function() {
+    var basePath = '{{ site.baseurl }}';
+    var rawPath  = window.location.pathname;
+    var stripped = rawPath.replace(/\/index\.html$/, '/');
+
+    // ===== Active-nav detector =====
+    // Sub-pages are nested under their section's URL (e.g.
+    // /projects/team-project/), so a simple prefix match is enough
+    // to highlight the right top-nav button.
+    var currentRel = stripped.replace(basePath, '') || '/';
+    if (currentRel.length > 1) currentRel = currentRel.replace(/\/$/, '');
+
+    var navLinks = document.querySelectorAll('.site-nav .page-link');
+    console.log('[ActiveNav] basePath=' + basePath + ' currentRel=' + currentRel + ' navLinks.count=' + navLinks.length);
+
+    navLinks.forEach(function(link) {
+      var linkUrl = new URL(link.href, window.location.origin);
+      var linkRel = linkUrl.pathname.replace(basePath, '') || '/';
+      if (linkRel.length > 1) linkRel = linkRel.replace(/\/$/, '');
+
+      var isActive = false;
+
+      // Direct match (e.g. /projects on /projects/)
+      if (linkRel === currentRel) {
+        isActive = true;
+      }
+      // Sub-path match (e.g. /projects on /projects/team-project/)
+      else if (linkRel !== '/' && currentRel.indexOf(linkRel + '/') === 0) {
+        isActive = true;
+      }
+
+      console.log('[ActiveNav]   link=' + linkRel + ' isActive=' + isActive);
+
+      if (isActive) {
+        link.classList.add('page-link--active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  });
+})();
+
+// ===== Nav-pointer flash =====
+// Clicking the words "activity" / "section" in the Welcome paragraph triggers
+// a brief teal pulse on the corresponding navigation surface so a tutor can
+// see at-a-glance where each one lives.
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var pointers = document.querySelectorAll('.mk-nav-pointer[data-nav-target]');
+    pointers.forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        var key = el.getAttribute('data-nav-target');
+        var target = null;
+        if (key === 'activity') {
+          target = document.querySelector('.mk-activity-nav');
+        } else if (key === 'section') {
+          target = document.querySelector('.mk-topnav');
+        }
+        if (!target) return;
+
+        // Scroll the target into view if it's off-screen
+        var rect = target.getBoundingClientRect();
+        if (rect.top < 0 || rect.bottom > window.innerHeight) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Flash. Remove any existing flash first so repeat-clicks re-trigger.
+        target.classList.remove('mk-nav-flash');
+        // Force reflow so the animation restarts
+        void target.offsetWidth;
+        target.classList.add('mk-nav-flash');
+        setTimeout(function() {
+          target.classList.remove('mk-nav-flash');
+        }, 2300);
+      });
+    });
+  });
+})();
+</script>

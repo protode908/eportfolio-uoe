@@ -1,0 +1,53 @@
+=== Clustering run ===
+
+Rows: 48847
+Numeric features: ['log_price', 'minimum_nights', 'reviews_per_month', 'availability_365']
+Room type one-hot: drop_first=True
+One-hot columns: ['room_type_Private room', 'room_type_Shared room']
+Scaler: StandardScaler
+K range: [2, 3, 4, 5, 6]
+K reviewed: [3, 5]
+K used in this run: 3
+random_state=1, n_init=10, silhouette sample=10000
+
+--- K diagnostics ---
+  K = 2: inertia = 226021.78, silhouette = 0.2957
+  K = 3: inertia = 174649.29, silhouette = 0.3270
+  K = 4: inertia = 134831.92, silhouette = 0.3750
+  K = 5: inertia = 111230.35, silhouette = 0.3813
+  K = 6: inertia = 94545.44, silhouette = 0.3978
+
+--- Cluster profiles (K=3 run) ---
+         log_price  minimum_nights  reviews_per_month  availability_365  count  share
+cluster
+0            4.277           4.744              1.158           109.987  22016  0.451
+1            5.167           7.338              1.034           113.008  25674  0.526
+2            3.974           5.185              1.076           161.697   1157  0.024
+
+--- Cluster x room_type ---
+room_type  Entire home/apt  Private room  Shared room
+cluster
+0                       48         21968            0
+1                    25343           331            0
+2                        0             0         1157
+
+--- Cluster x room_type % ---
+room_type  Entire home/apt  Private room  Shared room
+cluster
+0                    0.002         0.998          0.0
+1                    0.987         0.013          0.0
+2                    0.000         0.000          1.0
+
+--- Cluster x neighbourhood_group ---
+neighbourhood_group  Bronx  Brooklyn  Manhattan  Queens  Staten Island
+cluster
+0                      654     10062       7747    3365            188
+1                      375      9607      13415    2101            176
+2                       59       411        480     198              9
+
+--- Cluster x neighbourhood_group % ---
+neighbourhood_group  Bronx  Brooklyn  Manhattan  Queens  Staten Island
+cluster
+0                    0.030     0.457      0.352   0.153          0.009
+1                    0.015     0.374      0.523   0.082          0.007
+2                    0.051     0.355      0.415   0.171          0.008

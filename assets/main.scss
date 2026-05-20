@@ -1,0 +1,1793 @@
+---
+---
+
+// === Custom theme variables (override Minima before import) ===
+// IMPORTANT: $content-width is the CEILING (max-width) for every .wrapper
+// on the site. Minima's default 800px is far too narrow for modern wide
+// screens; we override to 1400px so the wrapper caps there. On every
+// screen smaller than 1400px the wrapper shrinks naturally to fit the
+// viewport (max-width is a cap, not a fixed size).
+$content-width:     1400px;
+
+$brand-color:       #3A7D7D !default;  // muted teal - primary accent
+$brand-color-light: #6FA9A9 !default;  // lighter teal for hover / muted UI
+$brand-color-dark:  #245252 !default;  // darker teal for headings if needed
+
+$text-color:        #1F2933 !default;  // near-black, easier on the eye than pure black
+$background-color:  #FFFFFF !default;
+$grey-color:        #5C6975 !default;
+$grey-color-light:  #E5E9ED !default;
+$grey-color-dark:   #3B4451 !default;
+
+$base-font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !default;
+$base-font-size:    17px !default;
+$base-line-height:  1.6 !default;
+
+// === Import Minima ===
+@import "minima";
+
+// === Viewport-aware wrapper padding ===
+// Minima uses a fixed 30px padding on each side of .wrapper. We override
+// to use clamp() so padding scales with viewport: tight on phones,
+// generous on desktops. Never less than 16px, never more than 60px.
+.wrapper {
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
+}
+
+// === Light extra customisations on top of Minima ===
+
+.site-header {
+  border-top: 5px solid $brand-color;
+  border-bottom: 5px solid $brand-color;       // thicker teal separator below the header
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) inset; // very faint inner hairline above the bottom border
+
+  // Two-column layout: title+nav on the left, cover block on the right.
+  // Override the previous flex-column wrapper.
+  @media screen and (min-width: 701px) {
+    > .wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+  }
+
+  // On narrow screens, stack: title+nav first, cover block below.
+  @media screen and (max-width: 700px) {
+    > .wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+  }
+}
+
+// Left side container: site title + nav, stacked vertically.
+.mk-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+// Right side container: cover block in the header.
+.mk-header-cover {
+  flex: 0 0 auto;
+  text-align: right;
+  padding-top: 4px;
+
+  @media screen and (max-width: 700px) {
+    text-align: left;
+    padding-top: 0;
+  }
+}
+
+.mk-header-cover-title {
+  font-size: 1.3em;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: $brand-color-dark;
+  margin: 0 0 1px 0;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.mk-header-cover-meta {
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: $grey-color;
+  margin: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+// === DRAFT reminder banner ===================================================
+// High-visibility red banner on the home page. Listed code/document files are
+// placeholder versions; this banner removed once final files are uploaded.
+.mk-draft-banner {
+  margin: 0 0 28px 0;
+  padding: 16px 20px;
+  background: #FFE9E9;
+  border: 2px solid #C8302E;
+  border-left: 8px solid #C8302E;
+  border-radius: 6px;
+  color: #2A0606;
+
+  .mk-draft-banner-title {
+    margin: 0 0 8px 0;
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #C8302E;
+    letter-spacing: 0.02em;
+  }
+  .mk-draft-banner-body {
+    margin: 0 0 6px 0;
+    font-weight: 600;
+  }
+  .mk-draft-banner-list {
+    margin: 0 0 8px 18px;
+    padding: 0;
+
+    li {
+      margin: 4px 0;
+      line-height: 1.4;
+    }
+    code {
+      background: rgba(200, 48, 46, 0.10);
+      color: #C8302E;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-size: 0.92em;
+    }
+  }
+  .mk-draft-banner-footer {
+    margin: 0;
+    font-size: 0.9em;
+    font-style: italic;
+    color: #5A0F0F;
+  }
+}
+
+// === Hide the legacy site-title link ==========================================
+// The duplicate "Machine Learning - e-Portfolio" text was removed visually.
+// The cover block on the right of the header carries the module identity.
+// Kept here in a "visually-hidden" form for SEO and accessibility only.
+.site-title {
+  display: none;
+}
+
+// === Top-header navigation grid ===============================================
+// Compact 4-column grid of uniform pill buttons in the left half of the header.
+// 7 buttons total: 4 home-page anchors (row 1) + 3 catalogue page links (row 2).
+// Each button: small Feather-style SVG icon (teal, currentColor) + label.
+// On mobile, collapses to 2 columns.
+.mk-topnav {
+  width: 100%;
+}
+
+.mk-topnav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+
+  > li {
+    margin: 0;
+    display: flex;
+  }
+}
+
+.mk-topnav-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+  padding: 3px 10px;
+  background: $grey-color-light;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  text-decoration: none;
+  color: $text-color;
+  font-size: 0.72em;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  line-height: 1.15;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover,
+  &:focus {
+    background: #ffffff;
+    border-color: $brand-color-light;
+    color: $brand-color-dark;
+    text-decoration: none;
+
+    .mk-topnav-icon svg {
+      color: $brand-color-dark;
+    }
+  }
+}
+
+.mk-topnav-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: $brand-color;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: $brand-color;
+    transition: color 0.15s ease;
+  }
+}
+
+.mk-topnav-label {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+// Catalogue links (full-page navigation) get a subtle left-border accent
+// to distinguish "jumps to another page" from "scrolls on this page".
+.mk-topnav-link--catalogue {
+  border-left: 2px solid $brand-color;
+  padding-left: 6px;
+}
+
+// === Top navigation: button-style, single-line where possible ===
+// On wide screens, the nav has its own row below the title (full container
+// width), and lays out items as a flex row with each item rendered as a
+// "ghost button". Multi-word items ("Evidence Index", "Professional
+// Development") stay together as a single button via white-space: nowrap.
+// flex-wrap is set to nowrap so the seven items stay on one line; if the
+// viewport is narrower than the row width, the row scrolls horizontally
+// (rare on a desktop monitor).
+.site-nav {
+  @media screen and (min-width: 601px) {
+    float: none;
+    line-height: 1;
+    padding: 0 0 10px 0;
+
+    .trigger {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 5px;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: visible;
+    }
+  }
+
+  .page-link {
+    display: inline-block;
+    padding: 3px 9px;
+    margin: 0;
+    border: 1px solid $brand-color-light;
+    border-radius: 6px;
+    background: transparent;
+    color: $brand-color-dark;
+    font-size: 0.85em;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background: $brand-color;
+      border-color: $brand-color;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+  }
+
+  // Active state: filled-teal "pressed" button on the section the user is
+  // currently in. Applied via JS in custom-head.html.
+  .page-link--active {
+    background: $brand-color;
+    border-color: $brand-color;
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+
+    &:visited { color: #FFFFFF; }
+
+    &:hover,
+    &:focus {
+      background: $brand-color-dark;
+      border-color: $brand-color-dark;
+      color: #FFFFFF;
+    }
+  }
+}
+
+// === Back / Home buttons (injected at top of every non-home page) ===
+.back-button-wrap {
+  margin: 0 0 1.8em 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid $grey-color-light;
+  border-radius: 6px;
+  background: $background-color;
+  color: $text-color;
+  font-size: 0.9em;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover,
+  &:focus {
+    background: $grey-color-light;
+    border-color: $grey-color;
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4 {
+  color: $brand-color-dark;
+}
+
+a {
+  color: $brand-color;
+
+  &:visited { color: $brand-color-dark; }
+  &:hover   { color: $brand-color-dark; text-decoration: underline; }
+}
+
+blockquote {
+  color: $grey-color-dark;
+  border-left: 4px solid $brand-color-light;
+  padding-left: 15px;
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  th {
+    background: $grey-color-light;
+    color: $brand-color-dark;
+    text-align: left;
+    padding: 8px 12px;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid $grey-color-light;
+  }
+}
+
+.unit-meta {
+  font-size: 0.9em;
+  color: $grey-color;
+  margin-bottom: 1.5em;
+}
+
+.evidence-caption {
+  font-size: 0.9em;
+  color: $grey-color-dark;
+  font-style: italic;
+  display: block;
+  margin-top: 0.4em;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  border: 1px solid $grey-color-light;
+  border-radius: 4px;
+}
+
+// === Units page - cards grid ===
+.units-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 2em 0;
+}
+
+.unit-card {
+  display: block;
+  padding: 18px 20px;
+  border: 1px solid $grey-color-light;
+  border-left: 4px solid $brand-color-light;
+  border-radius: 6px;
+  background: #FFFFFF;
+  text-decoration: none !important;
+  color: $text-color;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-left-color 0.12s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left-color: $brand-color;
+    text-decoration: none !important;
+  }
+
+  &.unit-card--complete    { border-left-color: $brand-color; }
+  &.unit-card--in-progress { border-left-color: #E0A030; }
+  &.unit-card--upcoming    { border-left-color: $grey-color-light; }
+}
+
+.unit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.unit-card-number {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: $brand-color-dark;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.unit-card-status {
+  font-size: 0.75em;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  &.status-complete    { background: $brand-color;       color: #FFFFFF; }
+  &.status-in-progress { background: #FFE9C2;            color: #7A5400; }
+  &.status-upcoming    { background: $grey-color-light;  color: $grey-color-dark; }
+}
+
+.unit-card-title {
+  margin: 0 0 6px 0;
+  font-size: 1.05em;
+  color: $brand-color-dark;
+}
+
+.unit-card-dates {
+  margin: 0 0 8px 0;
+  font-size: 0.8em;
+  color: $grey-color;
+}
+
+.unit-card-summary {
+  margin: 0;
+  font-size: 0.9em;
+  color: $grey-color-dark;
+  line-height: 1.45;
+}
+
+// === Per-unit prev / next navigation (bottom of each unit page) ===
+.unit-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid $grey-color-light;
+  font-size: 0.9em;
+
+  .unit-nav-prev,
+  .unit-nav-next,
+  .unit-nav-center {
+    flex: 1 1 0;
+  }
+
+  .unit-nav-prev  { text-align: left; }
+  .unit-nav-center{ text-align: center; }
+  .unit-nav-next  { text-align: right; }
+
+  a {
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+@media (max-width: 600px) {
+  .unit-nav {
+    flex-direction: column;
+    align-items: stretch;
+    .unit-nav-prev, .unit-nav-center, .unit-nav-next { text-align: center; }
+  }
+}
+
+// === Unit page two-column layout: sidebar on left, content on right ===
+// Independent scroll regions: each column scrolls within its own height.
+// The container takes the remaining viewport after the site header and
+// sticky banner (estimated 220px); each child gets overflow-y: auto.
+.unit-page-layout {
+  display: flex;
+  gap: 28px;
+  align-items: stretch;
+  height: calc(100vh - 220px);
+  min-height: 400px;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+.unit-page-main {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding-right: 12px;  // breathing room next to scrollbar
+  scroll-behavior: smooth;
+  scroll-padding-top: 1em;  // offset for sticky banner
+
+  // Anchor scroll target offset so headings do not hide under the
+  // sticky section-overview banner when jumped to via #anchor link.
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: 1em;
+  }
+
+  @media screen and (max-width: 700px) {
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+// === Unit sidebar (left rail of 12 unit buttons) ===
+// Scrolls independently within its own height. No longer sticky because
+// the parent has a fixed height.
+.unit-sidebar {
+  flex: 0 0 130px;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  @media screen and (max-width: 700px) {
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+.unit-sidebar-title {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $grey-color-dark;
+  margin: 0 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid $grey-color-light;
+}
+
+.unit-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.unit-sidebar-link {
+  display: block;
+  padding: 6px 10px;
+  border: 1px solid $grey-color-light;
+  border-left: 4px solid $grey-color-light;
+  border-radius: 4px;
+  background: transparent;
+  color: $text-color;
+  font-size: 0.88em;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:visited { color: $text-color; }
+
+  &:hover, &:focus {
+    background: $grey-color-light;
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  &.unit-sidebar-link--complete    { border-left-color: $brand-color; }
+  &.unit-sidebar-link--in-progress { border-left-color: #E0A030; }
+  &.unit-sidebar-link--upcoming    { border-left-color: $grey-color-light; }
+
+  &.unit-sidebar-link--current {
+    background: $brand-color;
+    border-color: $brand-color;
+    border-left-color: $brand-color-dark;
+    color: #FFFFFF;
+    font-weight: 600;
+
+    &:visited { color: #FFFFFF; }
+
+    &:hover, &:focus {
+      background: $brand-color-dark;
+      border-color: $brand-color-dark;
+      color: #FFFFFF;
+    }
+  }
+}
+
+// === Section sidebar (Projects, Discussions, Prof. Dev. sub-pages) ===
+// Wider than unit-sidebar to accommodate descriptive labels like
+// "Individual Project" or "Skills Matrix".
+.section-sidebar {
+  flex: 0 0 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  @media screen and (max-width: 700px) {
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  // Nest the title rule under .section-sidebar so the selector
+  // (.section-sidebar .section-sidebar-title, specificity 0,2,0) beats
+  // Minima's .post-content h3 (specificity 0,1,1) which would otherwise
+  // override font-size and produce mid-word line breaks.
+  .section-sidebar-title {
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: $grey-color-dark;
+    margin: 0 0 10px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $grey-color-light;
+    line-height: 1.25;
+
+    // Break only at word boundaries; never mid-word.
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+}
+
+.section-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.section-sidebar-link {
+  display: block;
+  padding: 6px 12px;
+  border: 1px solid $grey-color-light;
+  border-left: 4px solid $brand-color-light;
+  border-radius: 4px;
+  background: transparent;
+  color: $text-color;
+  font-size: 0.88em;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:visited { color: $text-color; }
+
+  &:hover, &:focus {
+    background: $grey-color-light;
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  &.section-sidebar-link--current {
+    background: $brand-color;
+    border-color: $brand-color;
+    border-left-color: $brand-color-dark;
+    color: #FFFFFF;
+    font-weight: 600;
+
+    &:visited { color: #FFFFFF; }
+
+    &:hover, &:focus {
+      background: $brand-color-dark;
+      border-color: $brand-color-dark;
+      color: #FFFFFF;
+    }
+  }
+}
+
+// === Section overview block: sticky banner inside its parent column ===
+// position: sticky keeps it visible as the user scrolls. Stays within its
+// parent's width (the right column on pages with a sidebar, or the
+// wrapper on pages without). No more 100vw breakout because that
+// misaligned the text inside flex columns.
+.section-overview {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  margin: 0 0 1.6em 0;
+  padding: 10px 18px;
+  background: rgba(229, 233, 237, 0.96);  // $grey-color-light at near-full opacity
+  backdrop-filter: blur(4px);
+  border-bottom: 2px solid $brand-color;
+  border-radius: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  p {
+    margin: 0;
+    font-size: 0.92em;
+    line-height: 1.45;
+  }
+
+  p + p { margin-top: 4px; }
+
+  .section-overview-title {
+    display: inline-block;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin: 0 8px 4px 0;
+    padding: 1px 6px;
+    background: $brand-color;
+    color: #FFFFFF;
+    border-radius: 3px;
+  }
+
+  ul, ol {
+    margin: 4px 0 0 0;
+
+    li {
+      margin-bottom: 0.2em;
+      font-size: 0.9em;
+
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
+
+// === Sub-page title rendered inside the main column ===
+// On pages using section-with-sidebar layout, the page title is rendered
+// inside .unit-page-main rather than in the article header above the
+// flex layout. This places the title in the right column where it
+// visually belongs.
+.section-page-title {
+  margin: 0 0 0.8em 0;
+  font-size: 1.6em;
+  line-height: 1.2;
+  color: $brand-color-dark;
+}
+
+// Prevent horizontal scroll
+html, body { overflow-x: hidden; }
+
+// === Anchored evidence figures - subtle highlight when navigated to via URL hash ===
+figure[id]:target {
+  outline: 3px solid $brand-color-light;
+  outline-offset: 6px;
+  border-radius: 6px;
+  transition: outline 0.3s ease;
+}
+
+// Print-friendly
+@media print {
+  .site-header, .site-footer { display: none; }
+  a { color: $text-color; text-decoration: none; }
+  .unit-nav { display: none; }
+  .unit-card { box-shadow: none; }
+}
+
+// ============================================================================
+// Marina-influenced overhaul v2 - Activity sidebar + full-width content cards.
+// All selectors are .mk-* prefixed so they cannot collide with existing rules.
+// Activated from _layouts/home.html which is the override of Minima's home.
+// Deep pages keep their existing layout (page / unit).
+// ============================================================================
+
+// Cover band -----------------------------------------------------------------
+
+.mk-cover {
+  text-align: center;
+  padding: 2.2rem 0 2rem;
+  border-bottom: 1px solid $grey-color-light;
+  margin: 0 0 2rem 0;
+}
+
+.mk-cover-name {
+  font-size: 0.85em;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  color: $brand-color-dark;
+  margin: 0 0 14px;
+}
+
+.mk-cover-title {
+  font-size: 2.1em;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  color: $brand-color-dark;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.mk-cover-meta {
+  font-size: 0.78em;
+  letter-spacing: 0.14em;
+  color: $grey-color;
+  margin: 0;
+}
+
+// About / module-overview intro yielded from index.md body ------------------
+
+.mk-intro {
+  margin: 0 0 0.2rem 0;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid rgba($brand-color, 0.22);
+
+  // Headings in the intro share the same look as the Module activities
+  // section heading: bold, brand-dark, no letter-spacing, with a thin grey
+  // underline. Keeps the visual rhythm consistent across the home page.
+  h1, h2, h3 {
+    color: $brand-color-dark;
+    letter-spacing: 0;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $grey-color-light;
+  }
+  h2 { font-size: 1.15em; margin-top: 1.4em; }
+  h3 { font-size: 1em; margin-top: 1.1em; }
+  // First heading sits flush with the top, no air above it.
+  > h2:first-child, > h3:first-child { margin-top: 0; }
+  // Paragraph immediately after a heading hugs it tightly.
+  h1 + p, h2 + p, h3 + p { margin-top: 0.2em; }
+  // Paragraphs sit closer to each other than browser default.
+  p { line-height: 1.55; margin: 0.2em 0 0.4em 0; }
+
+  // Subtle thin teal separator between subsections (rendered from
+  // markdown `---`). Short, centred, brand-color at low opacity.
+  hr {
+    border: none;
+    border-top: 1px solid rgba($brand-color, 0.22);
+    background: transparent;
+    height: 0;
+    width: 30%;
+    margin: 1.8em auto;
+  }
+
+  // Bolded inline text inside the intro gets the brand-dark colour so
+  // the highlighted phrases stand out subtly without shouting.
+  p strong { color: $brand-color-dark; }
+}
+
+// Nav-pointer buttons inside body prose ("activity", "section" in the Welcome
+// paragraph). Styled to look like inline emphasis text but clickable.
+.mk-nav-pointer {
+  display: inline;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  font-weight: 700;
+  color: $brand-color-dark;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  text-decoration-color: $brand-color-light;
+
+  &:hover, &:focus-visible {
+    color: $brand-color;
+    text-decoration-color: $brand-color;
+    outline: none;
+  }
+}
+
+// Striking on/off flash animation triggered by clicking a .mk-nav-pointer.
+// Uses amber/gold (matching the key-takeaway accent) so the flash contrasts
+// with the teal site palette. One cycle is 0.55s; the animation runs 4 times
+// for a total of ~2.2s of visible blinking, then stops cleanly.
+$mk-flash-color: #f0b400; // saturated amber, distinct from the teal palette
+
+@keyframes mkNavFlash {
+  0%, 100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 0 rgba($mk-flash-color, 0);
+    outline: 0 solid transparent;
+  }
+  50% {
+    background-color: rgba($mk-flash-color, 0.28);
+    box-shadow: 0 0 0 4px rgba($mk-flash-color, 0.55), 0 0 12px 4px rgba($mk-flash-color, 0.35);
+    outline: 3px solid $mk-flash-color;
+    outline-offset: 2px;
+  }
+}
+
+.mk-nav-flash {
+  animation: mkNavFlash 0.55s ease-in-out 4;
+  border-radius: 6px;
+}
+
+// Respect user preference for reduced motion: skip the blinking, apply a
+// static high-contrast tint that fades on its own.
+@media (prefers-reduced-motion: reduce) {
+  .mk-nav-flash {
+    animation: none;
+    background-color: rgba($mk-flash-color, 0.20);
+    outline: 3px solid $mk-flash-color;
+    outline-offset: 2px;
+    transition: background-color 0.4s ease 2s, outline-color 0.4s ease 2s;
+  }
+}
+
+// Section heading band ------------------------------------------------------
+
+.mk-section-heading {
+  font-size: 1.15em;
+  letter-spacing: 0;
+  font-weight: 700;
+  color: $brand-color-dark;
+  margin: 0 0 0.4rem 0;
+  padding: 0 0 6px 0;
+  border-bottom: 1px solid $grey-color-light;
+  text-transform: none;
+}
+
+// Two-column home layout: activity sidebar + cards column -------------------
+
+.mk-home-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  margin: 0 0 3rem 0;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+// Override Minima's default ~30px top padding on .page-content so the
+// content starts right below the header's green underline. Bottom padding
+// stays for a visual breath above the footer.
+.page-content {
+  padding-top: 8px !important;
+}
+
+// First child of the intro should sit flush with the top — no top margin
+// on the leading heading (Welcome).
+.mk-cards-column > .mk-intro :first-child,
+.mk-cards-column > :first-child {
+  margin-top: 0;
+}
+
+// Activity navigation sidebar (left column) ---------------------------------
+
+.mk-activity-nav {
+  flex: 0 0 260px;
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding-right: 6px;
+
+  @media (max-width: 900px) {
+    flex: 0 0 auto;
+    width: 100%;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+.mk-activity-nav-heading {
+  font-size: 1.15em;
+  letter-spacing: 0;
+  font-weight: 700;
+  color: $brand-color-dark;
+  margin: 0 0 0.4rem 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid $grey-color-light;
+
+  &:first-child { margin-top: 0; }
+}
+
+.mk-activity-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8em 0;
+
+  li { margin: 0 0 5px 0; }
+}
+
+.mk-activity-nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid $grey-color-light;
+  border-left: 4px solid $grey-color-light;
+  border-radius: 5px;
+  background: transparent;
+  color: $text-color;
+  font-size: 0.92em;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background 0.12s ease, border-left-color 0.12s ease, color 0.12s ease;
+
+  &:visited { color: $text-color; }
+
+  &:hover, &:focus {
+    background: $grey-color-light;
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  .mk-activity-nav-label {
+    flex: 1 1 auto;
+    // Allow wrap to two lines instead of truncating with ellipsis.
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .mk-activity-nav-unit {
+    flex: 0 0 auto;
+    font-size: 0.78em;
+    letter-spacing: 0.08em;
+    color: $grey-color;
+    font-weight: 700;
+    align-self: flex-start;
+    padding-top: 2px;
+  }
+
+  &--complete {
+    border-left-color: $brand-color;
+  }
+
+  &--in_progress {
+    border-left-color: #E0A030;
+  }
+
+  &--placeholder {
+    border-left-color: $grey-color-light;
+    color: $grey-color;
+
+    .mk-activity-nav-unit { color: $grey-color; }
+  }
+
+  &--feature {
+    border-left-width: 4px;
+    background: rgba(58, 125, 125, 0.04);
+
+    .mk-activity-nav-unit { color: $brand-color-dark; }
+  }
+
+  &--catalogue {
+    border-left-color: $brand-color-light;
+  }
+}
+
+// Cards column (right side) -------------------------------------------------
+
+.mk-cards-column {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+// Card --------------------------------------------------------------------
+
+.mk-card {
+  background: #FFFFFF;
+  // 2px-wide border on every state so colour changes do not cause a 1px
+  // layout shift on hover. Default colour is faint so the card still reads
+  // as "slim contour" until the user hovers.
+  border: 2px solid $grey-color-light;
+  border-radius: 8px;
+  padding: 22px 26px 18px;
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 16px;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+
+  &:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border-color: $brand-color;
+    background: #FBFEFE;
+  }
+
+  // The `feature` modifier no longer applies a permanent border / background
+  // treatment - all cards now share the same baseline and the same hover
+  // behaviour. Class kept on the article element in case future-me wants to
+  // reintroduce a feature accent without re-templating.
+  &--feature {
+    // intentionally empty
+  }
+
+  &--placeholder {
+    background: #FAFAF7;
+    opacity: 0.92;
+
+    .mk-card-title,
+    .mk-card-desc { color: $grey-color; }
+
+    &:hover {
+      background: #FAFAF7; // keep placeholder distinct on hover
+    }
+  }
+}
+
+.mk-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.mk-card-header-left {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mk-card-header-right {
+  flex: 0 0 auto;
+}
+
+.mk-card-unit {
+  font-size: 0.65em;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: $grey-color;
+}
+
+.mk-card-tbc {
+  display: inline-block;
+  font-size: 0.6em;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: #8A6500;
+  background: #FFF1CC;
+  padding: 3px 9px;
+  border-radius: 3px;
+
+  &--wip {
+    color: #4A4900;
+    background: #F0F2C0;
+  }
+}
+
+.mk-card-pill {
+  display: inline-block;
+  background: $brand-color;
+  color: #FFFFFF;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 3px 11px;
+  border-radius: 999px;
+}
+
+.mk-card-title {
+  margin: 6px 0 8px 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $brand-color-dark;
+  line-height: 1.25;
+}
+
+.mk-card-desc {
+  margin: 0 0 14px;
+  font-size: 0.98em;
+  color: $grey-color-dark;
+  line-height: 1.6;
+}
+
+.mk-card-activity {
+  margin: 0 0 14px 0;
+  padding: 10px 14px;
+  background: rgba(58, 125, 125, 0.06);
+  border-left: 3px solid $brand-color;
+  border-radius: 4px;
+
+  .mk-card-activity-label {
+    display: block;
+    font-size: 0.7em;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    color: $brand-color-dark;
+    margin-bottom: 4px;
+    text-transform: none;
+  }
+
+  .mk-card-activity-text {
+    margin: 0;
+    font-size: 0.92em;
+    line-height: 1.5;
+    color: $text-color;
+    font-style: italic;
+  }
+}
+
+.mk-card-feedback {
+  margin: 12px 0 0 0;
+  padding: 10px 14px;
+  background: rgba(92, 105, 117, 0.05);
+  border-left: 3px solid $grey-color;
+  border-radius: 4px;
+
+  .mk-card-feedback-label {
+    display: block;
+    font-size: 0.7em;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    color: $grey-color-dark;
+    margin-bottom: 4px;
+  }
+
+  .mk-card-feedback-text {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: $grey-color-dark;
+  }
+}
+
+.mk-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.mk-chip {
+  font-size: 0.72em;
+  padding: 3px 10px;
+  border: 1px solid $grey-color-light;
+  border-radius: 999px;
+  color: $grey-color-dark;
+  background: transparent;
+  letter-spacing: 0.01em;
+}
+
+.mk-card-figure {
+  margin: 8px auto 18px auto;
+  text-align: center;
+  max-width: 50%; // home card images at ~50% of card width
+
+  a {
+    display: inline-block;
+    border: 0;
+    cursor: zoom-in;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid $grey-color-light;
+    border-radius: 6px;
+    transition: opacity 0.15s ease;
+  }
+  a:hover img,
+  a:focus img {
+    opacity: 0.82;
+  }
+
+  figcaption {
+    font-size: 0.82em;
+    color: $grey-color;
+    font-style: italic;
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 700px) {
+    max-width: 90%; // give back room on small screens
+  }
+}
+
+// === Deep-page figure helpers ===
+// Use on team-project.md and similar deep pages to keep individual figures
+// visually proportionate (about 60 % of the text column) and to pair two
+// figures side-by-side. Linked images get the same zoom-in cursor + hover
+// dim as the home-card figures.
+
+.mk-fig {
+  margin: 1.6em auto;
+  max-width: 60%;
+  text-align: center;
+
+  a {
+    display: inline-block;
+    border: 0;
+    cursor: zoom-in;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.15s ease;
+  }
+  a:hover img,
+  a:focus img {
+    opacity: 0.82;
+  }
+
+  figcaption,
+  .evidence-caption {
+    margin-top: 0.5em;
+    font-size: 0.85em;
+  }
+
+  @media (max-width: 700px) {
+    max-width: 95%;
+  }
+}
+
+.mk-fig-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 1.6em auto;
+  max-width: 80%;
+  justify-content: center;
+  align-items: flex-start;
+
+  figure {
+    flex: 1 1 0;
+    min-width: 240px;
+    margin: 0;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      border: 0;
+      cursor: zoom-in;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border: 1px solid $grey-color-light;
+      border-radius: 4px;
+      transition: opacity 0.15s ease;
+    }
+    a:hover img,
+    a:focus img {
+      opacity: 0.82;
+    }
+
+    figcaption,
+    .evidence-caption {
+      margin-top: 0.5em;
+      font-size: 0.8em;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 700px) {
+    max-width: 100%;
+    flex-direction: column;
+  }
+}
+
+.mk-card-body {
+  margin: 0 0 16px 0;
+  font-size: 0.92em;
+  line-height: 1.6;
+  color: $text-color;
+
+  p { margin: 0 0 0.8em 0; }
+  p:last-child { margin-bottom: 0; }
+
+  h3, h4 {
+    font-size: 0.95em;
+    letter-spacing: 0.04em;
+    color: $brand-color-dark;
+    margin: 1em 0 0.4em 0;
+  }
+
+  ul, ol {
+    margin: 0.4em 0 0.8em 1.2em;
+    li { margin-bottom: 0.2em; }
+  }
+
+  strong { font-weight: 600; color: $brand-color-dark; }
+}
+
+.mk-card-refl {
+  border-top: 1px solid $grey-color-light;
+  padding-top: 12px;
+  margin-top: 8px;
+
+  .mk-refl-line {
+    font-size: 0.88em;
+    line-height: 1.6;
+    color: $text-color;
+    margin-bottom: 6px;
+
+    b {
+      font-size: 0.8em;
+      letter-spacing: 0.02em;
+      color: $grey-color;
+      font-weight: 700;
+      margin-right: 6px;
+      display: inline;
+    }
+
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+// Slim "Quick links" card placed on the Home page below "Module structure".
+// Two-link bordered block pointing the tutor at the two graded project deep
+// pages. Lighter visual weight than a full card.
+
+.mk-quick-links {
+  margin: 14px 0 18px;
+  padding: 12px 16px;
+  border: 1px solid $grey-color-light;
+  border-radius: 6px;
+  background: $background-color;
+
+  .mk-quick-links-title {
+    font-size: 0.78em;
+    letter-spacing: 0.16em;
+    color: $grey-color;
+    font-weight: 600;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+  }
+
+  li {
+    font-size: 0.92em;
+    line-height: 1.55;
+    margin-bottom: 4px;
+
+    a {
+      color: $brand-color;
+      text-decoration: none;
+      &:hover { text-decoration: underline; color: $brand-color-dark; }
+    }
+  }
+}
+
+// "See the full Learning Outcomes mapping" inline link under the LO legend.
+.mk-lo-legend-link {
+  margin: 2px 0 4px;
+  font-size: 1em;
+  color: $text-color;
+
+  a {
+    color: $brand-color;
+    text-decoration: none;
+    font-weight: 500;
+    &:hover { text-decoration: underline; color: $brand-color-dark; }
+  }
+}
+
+// LO legend: compact table placed once above the activity grid so a tutor
+// can resolve LO1-LO4 codes without leaving the home page.
+
+.mk-lo-legend {
+  margin: 0 0 2px;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  background: $background-color;
+  border: 1px solid $grey-color-light;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 100%;
+
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 1em;
+    letter-spacing: 0;
+    color: $text-color;
+    font-weight: 400;
+    padding: 0 0 2px 0;
+  }
+
+  th, td {
+    padding: 6px 14px;
+    border-bottom: 1px solid $grey-color-light;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+
+  th {
+    width: 70px;
+    color: $brand-color;
+    font-weight: 700;
+    background: lighten($brand-color-light, 35%);
+    letter-spacing: 0.04em;
+  }
+
+  td {
+    color: $text-color;
+  }
+
+  // 2x2 layout: each row carries LO1+desc | LO2+desc (and LO3+desc | LO4+desc).
+  // The second td of each row (the LO1/LO3 description cell) gets a strong
+  // right divider so the eye sees two LO groups, not four jumbled cells.
+  td:nth-of-type(1) {
+    border-right: 2px solid $brand-color-light;
+  }
+  // Second-column LO label cell has a touch more left padding for breathing.
+  th:nth-of-type(2) {
+    padding-left: 16px;
+  }
+}
+
+// Artefact: one-line summary of the concrete output produced. Visible by
+// default, sits just under the activity prompt and separates "what I made"
+// from "what was asked".
+
+.mk-card-artefact {
+  margin: 10px 0 8px;
+  font-size: 0.94em;
+  line-height: 1.55;
+
+  .mk-card-artefact-label {
+    display: inline-block;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    color: $grey-color;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  .mk-card-artefact-text {
+    display: inline;
+    margin: 0;
+    color: $text-color;
+  }
+}
+
+// Key takeaway: visible by default. The user's own punch line from the card.
+// Designed to be the first thing a scanner notices after the activity prompt
+// and the figure. Distinct background so it reads as "what I learned", not
+// "what the module gave me".
+
+.mk-card-takeaway {
+  background: #fbf6e7;
+  border-left: 3px solid #c9a637;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 14px 0 10px;
+
+  .mk-card-takeaway-label {
+    display: block;
+    font-size: 0.72em;
+    letter-spacing: 0.02em;
+    color: #8a6e1c;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .mk-card-takeaway-text {
+    margin: 0;
+    font-size: 0.94em;
+    line-height: 1.55;
+    color: #3a3a3a;
+  }
+}
+
+// Learning Outcomes: visible by default, own labelled subtitle, LOs rendered
+// as small pills so the coverage reads at-a-glance.
+
+.mk-card-los {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 4px;
+  font-size: 0.94em;
+
+  .mk-card-los-label {
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    color: $grey-color;
+    font-weight: 700;
+  }
+
+  .mk-card-los-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .mk-card-lo-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.78em;
+    font-weight: 500;
+    color: $brand-color;
+    background: lighten($brand-color-light, 35%);
+    border: 1px solid $brand-color-light;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+}
+
+// Collapsible details/summary blocks on a card -----------------------------
+// Used when a card opts in via collapse_body or collapse_reflection in YAML.
+// Styled as a subtle pill so it reads as an intentional UI element, not a
+// raw browser <details> arrow. Printed pages (including pandoc-PDF) render
+// <details> expanded by default in most browsers, so the assessable
+// reflection content remains visible on print.
+
+.mk-card-collapse {
+  margin-top: 12px;
+  border: 1px solid $grey-color-light;
+  border-radius: 6px;
+  background: lighten($grey-color-light, 7%);
+  overflow: hidden;
+
+  &[open] {
+    background: $background-color;
+  }
+
+  > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 0.88em;
+    font-weight: 600;
+    color: $brand-color;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::before {
+      content: "+";
+      display: inline-block;
+      width: 1em;
+      margin-right: 8px;
+      font-weight: 700;
+      transition: transform 0.15s ease;
+    }
+  }
+
+  &[open] > summary::before { content: "-"; }
+
+  > .mk-card-body,
+  > .mk-card-refl,
+  > .mk-card-buttons {
+    padding: 12px 14px 14px;
+    border-top: 1px solid $grey-color-light;
+    margin-top: 0;
+  }
+
+  // Reset the existing .mk-card-refl border-top because the parent already
+  // provides the separator line.
+  > .mk-card-refl {
+    border-top: 1px solid $grey-color-light;
+    padding-top: 12px;
+  }
+
+  // Buttons block inside a collapse: kill its own top border (parent has it)
+  > .mk-card-buttons--inside-collapse {
+    border-top: 1px solid $grey-color-light;
+    padding-top: 12px;
+  }
+}
+
+.mk-card-lo-chip {
+  display: inline-block;
+  margin-left: auto;
+  padding: 2px 8px;
+  font-size: 0.78em;
+  font-weight: 500;
+  color: $grey-color;
+  background: $background-color;
+  border: 1px solid $grey-color-light;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+// Buttons row at the bottom of every card -----------------------------------
+
+.mk-card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid $grey-color-light;
+}
+
+.mk-button {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid $brand-color-light;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: $brand-color-dark;
+  font-size: 0.78em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+
+  &:visited { color: $brand-color-dark; }
+
+  &:hover, &:focus {
+    background: $brand-color-light;
+    border-color: $brand-color;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  &--primary {
+    background: $brand-color;
+    border-color: $brand-color;
+    color: #FFFFFF;
+
+    &:visited { color: #FFFFFF; }
+
+    &:hover, &:focus {
+      background: $brand-color-dark;
+      border-color: $brand-color-dark;
+      color: #FFFFFF;
+    }
+  }
+}

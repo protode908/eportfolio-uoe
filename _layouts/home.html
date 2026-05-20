@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="mk-home-layout">
+
+  {% include activity-nav.html %}
+
+  <div class="mk-cards-column">
+
+    {% if content %}
+    <section class="mk-intro">
+      {{ content }}
+    </section>
+    {% endif %}
+
+    <table class="mk-lo-legend" aria-label="Learning Outcomes legend">
+      <caption>Learning Outcomes referenced on every activity card below:</caption>
+      <tbody>
+        <tr>
+          <th scope="row">LO1</th><td>Legal, social, ethical and professional issues</td>
+          <th scope="row">LO2</th><td>Datasets, applicability and challenges</td>
+        </tr>
+        <tr>
+          <th scope="row">LO3</th><td>Apply and critically appraise ML techniques</td>
+          <th scope="row">LO4</th><td>Effective team-member skills</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mk-lo-legend-link"><a href="{{ '/learning-outcomes/' | relative_url }}">See the full Learning Outcomes mapping</a> - every evidence item on this site mapped to LO1-LO4.</p>
+
+    <p class="mk-section-heading" id="activities">Module activities</p>
+
+    {% for card in site.data.activities.cards %}
+      {% include unit-card.html card=card %}
+    {% endfor %}
+
+  </div>
+
+</div>

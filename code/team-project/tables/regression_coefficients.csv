@@ -1,0 +1,10 @@
+feature,coefficient
+room_type_code,-0.397093127
+neighbourhood_group_code,-0.124863842
+availability_365,0.12224611579212162
+longitude,-0.10748206
+minimum_nights,-0.087913142
+number_of_reviews,-0.037617915
+latitude,0.033876894
+reviews_per_month,-0.018273322
+calculated_host_listings_count,0.016443274699685175

@@ -1,0 +1,28 @@
+{%- comment -%}
+Left activity-navigation rail for the Home page.
+Single group: ACTIVITIES (one button per card in _data/activities.yml,
+anchored to the card on the home page).
+ABOUT-section anchors and CATALOGUE page links were moved to the top
+header bar grid (see _includes/header.html).
+{%- endcomment -%}
+
+<nav class="mk-activity-nav" aria-label="Activities">
+
+  <p class="mk-activity-nav-heading">Activities</p>
+
+  <ul class="mk-activity-nav-list">
+    {%- for card in site.data.activities.cards -%}
+      <li>
+        <a href="#activity-{{ card.id }}" class="mk-activity-nav-link mk-activity-nav-link--{{ card.status | default: 'placeholder' }}{% if card.feature %} mk-activity-nav-link--feature{% endif %}">
+          <span class="mk-activity-nav-label">{{ card.title }}</span>
+          {%- if card.unit and card.unit != "" -%}
+            <span class="mk-activity-nav-unit">U{{ card.unit }}{% if card.feature %} &nbsp;★{% endif %}</span>
+          {%- elsif card.feature -%}
+            <span class="mk-activity-nav-unit">★</span>
+          {%- endif -%}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+</nav>

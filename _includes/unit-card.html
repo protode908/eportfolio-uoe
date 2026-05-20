@@ -1,0 +1,190 @@
+{%- assign c = include.card -%}
+{%- assign card_classes = "mk-card" -%}
+{%- if c.feature -%}{%- assign card_classes = card_classes | append: " mk-card--feature" -%}{%- endif -%}
+{%- if c.status == "placeholder" -%}{%- assign card_classes = card_classes | append: " mk-card--placeholder" -%}{%- endif -%}
+{%- if c.status == "in_progress" -%}{%- assign card_classes = card_classes | append: " mk-card--in-progress" -%}{%- endif -%}
+
+<article class="{{ card_classes }}" id="activity-{{ c.id }}">
+
+  <header class="mk-card-header">
+    <div class="mk-card-header-left">
+      {%- if c.feature_pill and c.feature_pill != "" -%}
+        <span class="mk-card-pill">{{ c.feature_pill }}</span>
+      {%- endif -%}
+      {%- if c.status == "placeholder" -%}
+        <span class="mk-card-tbc">TBC</span>
+      {%- elsif c.status == "in_progress" -%}
+        <span class="mk-card-tbc mk-card-tbc--wip">In progress</span>
+      {%- endif -%}
+    </div>
+    <div class="mk-card-header-right">
+      {%- if c.unit and c.unit != "" -%}
+        <span class="mk-card-unit">Unit {{ c.unit }}</span>
+      {%- endif -%}
+    </div>
+  </header>
+
+  <h2 class="mk-card-title">{{ c.title }}</h2>
+
+  {%- if c.activity and c.activity != "" -%}
+    <div class="mk-card-activity">
+      <span class="mk-card-activity-label">Activity</span>
+      <p class="mk-card-activity-text">{{ c.activity }}</p>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}
+    Artefact line: one short sentence naming the concrete output produced
+    plus Evidence IDs. Visible by default, separates "what I produced" from
+    "what the module asked for" (the activity prompt above).
+  {%- endcomment -%}
+  {%- if c.artefact and c.artefact != "" -%}
+    <div class="mk-card-artefact">
+      <span class="mk-card-artefact-label">Artefact</span>
+      <p class="mk-card-artefact-text">{{ c.artefact }}</p>
+    </div>
+  {%- endif -%}
+
+  <p class="mk-card-desc">{{ c.description }}</p>
+
+{%- if c.figure and c.figure != "" -%}
+    <figure class="mk-card-figure">
+      <a href="{{ c.figure | relative_url }}" target="_blank" rel="noopener" aria-label="Open full-size image in new tab">
+        <img src="{{ c.figure | relative_url }}" alt="{{ c.figure_alt | default: c.title }}">
+      </a>
+      {%- if c.figure_caption and c.figure_caption != "" -%}
+        <figcaption>{{ c.figure_caption }}</figcaption>
+      {%- endif -%}
+    </figure>
+  {%- endif -%}
+
+  {%- comment -%}
+    Key takeaway: visible by default. The user's own voice in 2-3 lines, so a
+    tutor scanning the home grid sees what was learned without expanding the
+    reflection block. This is what's gained beyond the activity prompt.
+  {%- endcomment -%}
+  {%- if c.key_takeaway and c.key_takeaway != "" -%}
+    <div class="mk-card-takeaway">
+      <span class="mk-card-takeaway-label">Key takeaway</span>
+      <p class="mk-card-takeaway-text">{{ c.key_takeaway }}</p>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}
+    Learning Outcomes: visible by default, own labelled subtitle. The list is
+    the union of micro_what_lo, micro_so_what_lo and micro_now_what_lo so the
+    LO coverage is at-a-glance even when the reflection block is collapsed.
+    Liquid's `concat` filter errors if any operand is nil, so we build the
+    union by starting from an empty array and conditionally concatenating
+    each LO array that actually exists on this card.
+  {%- endcomment -%}
+  {%- assign all_los = "" | split: "," -%}
+  {%- if c.micro_what_lo -%}{%- assign all_los = all_los | concat: c.micro_what_lo -%}{%- endif -%}
+  {%- if c.micro_so_what_lo -%}{%- assign all_los = all_los | concat: c.micro_so_what_lo -%}{%- endif -%}
+  {%- if c.micro_now_what_lo -%}{%- assign all_los = all_los | concat: c.micro_now_what_lo -%}{%- endif -%}
+  {%- assign all_los = all_los | uniq | sort -%}
+  {%- if all_los.size > 0 -%}
+    <div class="mk-card-los">
+      <span class="mk-card-los-label">Learning outcomes</span>
+      <span class="mk-card-los-list">
+        {%- for lo in all_los -%}
+          <span class="mk-card-lo-pill">{{ lo }}</span>
+        {%- endfor -%}
+      </span>
+    </div>
+  {%- endif -%}
+
+  {%- if c.body and c.body != "" -%}
+    {%- if c.collapse_body -%}
+      {%- assign body_summary_label = c.body_label | default: "Show details and results" -%}
+      <details class="mk-card-collapse mk-card-collapse--body">
+        <summary>{{ body_summary_label }}</summary>
+        <div class="mk-card-body">
+          {{ c.body | markdownify }}
+        </div>
+      </details>
+    {%- else -%}
+      <div class="mk-card-body">
+        {{ c.body | markdownify }}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if c.micro_what and c.micro_what != "" -%}
+    {%- if c.collapse_reflection -%}
+      <details class="mk-card-collapse mk-card-collapse--refl">
+        <summary>Show my reflection (What / So what / Now what)</summary>
+        <div class="mk-card-refl">
+          <div class="mk-refl-line">
+            <b>What I did{%- if c.micro_what_lo and c.micro_what_lo.size > 0 -%} ({{ c.micro_what_lo | join: ", " }}){%- endif -%}</b>
+            <span>{{ c.micro_what }}</span>
+          </div>
+          <div class="mk-refl-line">
+            <b>So what - what I learned{%- if c.micro_so_what_lo and c.micro_so_what_lo.size > 0 -%} ({{ c.micro_so_what_lo | join: ", " }}){%- endif -%}</b>
+            <span>{{ c.micro_so_what }}</span>
+          </div>
+          <div class="mk-refl-line">
+            <b>Now what - what I take with me{%- if c.micro_now_what_lo and c.micro_now_what_lo.size > 0 -%} ({{ c.micro_now_what_lo | join: ", " }}){%- endif -%}</b>
+            <span>{{ c.micro_now_what }}</span>
+          </div>
+        </div>
+      </details>
+    {%- else -%}
+      <div class="mk-card-refl">
+        <div class="mk-refl-line">
+          <b>What I did{%- if c.micro_what_lo and c.micro_what_lo.size > 0 -%} ({{ c.micro_what_lo | join: ", " }}){%- endif -%}</b>
+          <span>{{ c.micro_what }}</span>
+        </div>
+        <div class="mk-refl-line">
+          <b>So what - what I learned{%- if c.micro_so_what_lo and c.micro_so_what_lo.size > 0 -%} ({{ c.micro_so_what_lo | join: ", " }}){%- endif -%}</b>
+          <span>{{ c.micro_so_what }}</span>
+        </div>
+        <div class="mk-refl-line">
+          <b>Now what - what I take with me{%- if c.micro_now_what_lo and c.micro_now_what_lo.size > 0 -%} ({{ c.micro_now_what_lo | join: ", " }}){%- endif -%}</b>
+          <span>{{ c.micro_now_what }}</span>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if c.feedback and c.feedback != "" -%}
+    <div class="mk-card-feedback">
+      <span class="mk-card-feedback-label">Feedback</span>
+      <p class="mk-card-feedback-text">{{ c.feedback }}</p>
+    </div>
+  {%- endif -%}
+
+  {%- if c.links and c.links.size > 0 or c.deep_page and c.deep_page != "" -%}
+    {%- if c.collapse_links -%}
+      <details class="mk-card-collapse mk-card-collapse--links">
+        <summary>Show evidence links</summary>
+        <div class="mk-card-buttons mk-card-buttons--inside-collapse">
+          {%- if c.deep_page and c.deep_page != "" -%}
+            <a href="{{ c.deep_page | relative_url }}" class="mk-button mk-button--primary">
+              {%- if c.feature -%}Full project page{%- else -%}Activity page{%- endif -%}
+            </a>
+          {%- endif -%}
+          {%- if c.links and c.links.size > 0 -%}
+            {%- for link in c.links -%}
+              <a href="{{ link.url | relative_url }}" class="mk-button">{{ link.label }}</a>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </details>
+    {%- else -%}
+      <div class="mk-card-buttons">
+        {%- if c.deep_page and c.deep_page != "" -%}
+          <a href="{{ c.deep_page | relative_url }}" class="mk-button mk-button--primary">
+            {%- if c.feature -%}Full project page{%- else -%}Activity page{%- endif -%}
+          </a>
+        {%- endif -%}
+        {%- if c.links and c.links.size > 0 -%}
+          {%- for link in c.links -%}
+            <a href="{{ link.url | relative_url }}" class="mk-button">{{ link.label }}</a>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+</article>

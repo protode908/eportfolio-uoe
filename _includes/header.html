@@ -1,0 +1,123 @@
+{%- comment -%}
+Custom header override (Minima default replaced).
+Left side: row of small navigation buttons with inline SVG icons.
+  Start (home), About Me, Learning Outcomes, Evidence Index, References,
+  Professional Development, Ethics, View source.
+Right side: cover block (Ariel Mella + Machine Learning + module/term/uni).
+{%- endcomment -%}
+
+<header class="site-header" role="banner">
+  <div class="wrapper mk-header-wrapper">
+
+    <div class="mk-header-left">
+      <nav class="mk-topnav" aria-label="Main navigation">
+        <ul class="mk-topnav-list">
+
+          <li>
+            <a href="{{ '/' | relative_url }}" class="mk-topnav-link">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12L12 3l9 9"/>
+                  <path d="M5 10v10h14V10"/>
+                  <path d="M10 20v-6h4v6"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">Start</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ '/about/' | relative_url }}" class="mk-topnav-link">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">About Me</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ '/learning-outcomes/' | relative_url }}" class="mk-topnav-link mk-topnav-link--catalogue">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">Learning outcomes</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ '/evidence-index/' | relative_url }}" class="mk-topnav-link mk-topnav-link--catalogue">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">Evidence Index</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ '/references/' | relative_url }}" class="mk-topnav-link mk-topnav-link--catalogue">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">References</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ '/skills-matrix/' | relative_url }}" class="mk-topnav-link mk-topnav-link--catalogue">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"/>
+                  <rect x="14" y="3" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/>
+                  <rect x="14" y="14" width="7" height="7"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">Professional Development</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ '/ethics/' | relative_url }}" class="mk-topnav-link mk-topnav-link--catalogue">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">Ethics</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/protode908/eportfolio-uoe" class="mk-topnav-link mk-topnav-link--catalogue" target="_blank" rel="noopener">
+              <span class="mk-topnav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/>
+                </svg>
+              </span>
+              <span class="mk-topnav-label">View source</span>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mk-header-cover" aria-label="Module identity">
+      <p class="mk-header-cover-title">Machine Learning</p>
+      <p class="mk-header-cover-meta">Ariel Mella &middot; e-Portfolio</p>
+    </div>
+
+  </div>
+</header>

@@ -1,0 +1,4 @@
+cluster,log_price,minimum_nights,reviews_per_month,availability_365,count,share
+0,4.277,4.744,1.158,109.987,22016,0.451
+1,5.167,7.338,1.034,113.008,25674,0.526
+2,3.974,5.185,1.076,161.697,1157,0.024

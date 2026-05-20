@@ -1,0 +1,63 @@
+=== Regression run ===
+
+Rows: 48847
+Features used: ['room_type_code', 'neighbourhood_group_code', 'latitude', 'longitude', 'minimum_nights', 'number_of_reviews', 'reviews_per_month', 'availability_365', 'calculated_host_listings_count']
+Target: log_price
+Split: 0.80 / 0.20, random_state = 1
+
+--- VIF ---
+                       feature   VIF
+                room_type_code 1.061
+      neighbourhood_group_code 1.607
+                      latitude 1.195
+                     longitude 1.494
+                minimum_nights 1.241
+             number_of_reviews 1.561
+             reviews_per_month 1.625
+              availability_365 1.191
+calculated_host_listings_count 1.154
+
+VIF threshold 5.0: none removed.
+
+Feature set in this run: ['room_type_code', 'neighbourhood_group_code', 'latitude', 'longitude', 'minimum_nights', 'number_of_reviews', 'reviews_per_month', 'availability_365', 'calculated_host_listings_count']
+Baseline feature: room_type_code
+
+--- Abs corr with target (train) ---
+room_type_code                    0.613
+neighbourhood_group_code          0.342
+longitude                         0.329
+calculated_host_listings_count    0.132
+availability_365                  0.096
+latitude                          0.080
+reviews_per_month                 0.058
+minimum_nights                    0.049
+number_of_reviews                 0.042
+
+--- Metrics (test) ---
+                             model     R2    MAE    MSE   RMSE
+      Linear (room_type_code only) 0.3720 0.4025 0.2998 0.5475
+Multiple linear (post-VIF, scaled) 0.4803 0.3598 0.2481 0.4981
+      Polynomial degree 2 (scaled) 0.5343 0.3383 0.2223 0.4714
+
+--- Multi-linear coefficients (scaled) ---
+                       feature  coefficient
+                room_type_code      -0.3971
+      neighbourhood_group_code      -0.1249
+              availability_365       0.1222
+                     longitude      -0.1075
+                minimum_nights      -0.0879
+             number_of_reviews      -0.0376
+                      latitude       0.0339
+             reviews_per_month      -0.0183
+calculated_host_listings_count       0.0164
+Intercept: 4.7374
+
+--- Residuals ---
+count    9770.0000
+mean       -0.0096
+std         0.4980
+min        -2.9745
+25%        -0.3167
+50%        -0.0624
+75%         0.2298
+max         4.4010

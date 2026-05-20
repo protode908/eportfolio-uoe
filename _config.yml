@@ -1,0 +1,51 @@
+# --- Site identity ---
+title: "Machine Learning - e-Portfolio"
+subtitle: "MSc Artificial Intelligence · University of Essex Online"
+author:
+  name: "Ariel Mella"
+description: >-
+  e-Portfolio for the Machine Learning module (April 2026), University of Essex Online,
+  MSc Artificial Intelligence. Reflective record of learning, team contributions, and applied work.
+
+# --- Build / theme ---
+theme: minima
+minima:
+  skin: classic
+  date_format: "%-d %B %Y"
+  social_links:
+    - { platform: github, user_url: "https://github.com/protode908" }
+
+# --- URLs ---
+url: "https://protode908.github.io"
+baseurl: "/eportfolio-uoe"
+
+# --- Top navigation (Minima reads this) ---
+# Marina-influenced 4-item nav: site-title is the implicit Home link,
+# then three first-class catalogue pages. Units, Projects, Discussions and
+# Professional Development become cards on the Home grid rather than
+# top-level nav items.
+header_pages:
+  - evidence-index.md
+  - references.md
+
+# --- Collections ---
+collections:
+  units:
+    output: true
+    permalink: /units/:path/
+    sort_by: order
+
+# --- Markdown / build ---
+markdown: kramdown
+permalink: /:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# --- Excludes from build ---
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - DEPLOY.md
+  - vendor/
+  - .DS_Store

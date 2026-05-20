@@ -1,0 +1,558 @@
+cards:
+- id: cd1
+  unit: 1-3
+  title: 'Collaborative Discussion 1: The 4th Industrial Revolution'
+  activity: '"Discuss the impact of the 4th Industrial Revolution on a chosen industry: post an initial perspective grounded in current literature, respond substantively to at least two peers across Units 2-3, and close with a synthesis summary post by the end of Unit 3." (University of Essex Online, n.d.)'
+  description: ''
+  body: 'The summary post is where the discussion changed my view. I started by treating Industry 4.0 / 5.0 mainly as an efficiency opportunity. By the end, I saw it as a socio-technical dependency problem. The peer thread across automotive, healthcare, pharmaceutical and education examples drove that shift. No single sector example was enough on its own. The implementation gap is the point I carried forward: Industry 5.0 is framed around human-centricity, sustainability and resilience, but the public evidence (Accenture, 2025; World Economic Forum, 2025a) suggests these ideas are still more aspirational than implemented. The next question is governance. Recovery drills, manual fallback plans, supplier-risk controls, reskilling budgets and labour-impact assessments need funding, measurement and testing. Declarations are not enough.'
+  micro_what: 'Initial post on my view based on previous module and this one: perspective on the 4th Industrial Revolution in the automotive sector. Engaged with colleagues who posted on healthcare and pharmaceutical industries'' impact, and provided a closure with a summary post. A mix of the cybersecurity risks and management of them balancing the benefits and contribution were discussed.'
+  micro_what_lo:
+  - LO1
+  micro_so_what: 'It was evident a cross-industry pattern: automotive, healthcare and pharmaceutical all showed the same Industry 5.0 apparent implementation gap. My view changed from an efficiency angle in the initial post to a socio-technical dependency angle in the summary post. What worked: anchoring each peer response in a fresh academic source instead of restating peer arguments, that helped me and forced me to research and find alternative perspectives. What I would not repeat: I underweighted ethics in the opening framing and focused on it only in later responses.'
+  micro_so_what_lo:
+  - LO1
+  micro_now_what: I can capitalise on bringing ethics earlier and broader research from the beginning. I have already looked at the CD2 content, and although it is about the legal and ethical views on ANN applications - another area - it will benefit from this enrichment on early engagement.
+  micro_now_what_lo:
+  - LO1
+  feature: false
+  deep_page: ''
+  links:
+  - label: INITIAL POST
+    url: /assets/evidence/cd1/CD1_InitialPost_Mella2026.pdf
+  - label: PEER RESPONSES
+    url: /assets/evidence/cd1/CD1_PeerResponses_Mella2026.pdf
+  - label: SUMMARY POST
+    url: /assets/evidence/cd1/CD1_SummaryPost_Mella2026.pdf
+  status: complete
+  key_takeaway: 'I started this discussion thinking mostly about Industry 4.0 and efficiency, but the peer thread pushed me further. Automotive, healthcare and pharmaceutical examples all showed the same gap: Industry 5.0 sounds human-centred and resilient, but the hard part is actually implementing it. I should have brought ethics into my opening post, not only the later summary.'
+  collapse_body: true
+  collapse_reflection: true
+  artefact: 'Three-part forum thread: initial post, peer responses (Peer A, Peer B), summary post. Evidence: ECD1.1-ECD1.5.'
+  collapse_links: true
+- id: unit2-eda-tutorial
+  unit: '2'
+  title: 'EDA Tutorial: AutoMPG Dataset'
+  activity: '"Perform exploratory data analysis on the UCI Auto-mpg dataset: identify variable types, handle missing values, compute descriptive statistics, examine correlations and produce visualisations supporting an initial regression hypothesis." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-2/heatmap_correlation.png
+  figure_alt: Pearson correlation heatmap of the Auto-mpg numeric features
+  figure_caption: Pearson correlation heatmap of the Auto-mpg numeric features. E2.7
+  body: ''
+  micro_what: Worked through the module's seminar exercise on EDA for the UCI Auto-mpg dataset (Quinlan, 1993), producing a correlation heatmap and scatter plots for the strongest predictors. I had practised parts of the classical-ML track before so this felt pretty familiar. The useful part here was testing one assumption at a time and seeing how things break.
+  micro_what_lo:
+  - LO2
+  micro_so_what: 'Weight, displacement and horsepower were the main variables behind fuel economy, and the direction and association made sense: heavier cars, larger engines and higher horsepower all linked to lower MPG. The simple flow I used - load and check the shape, deal with missing values, run descriptive statistics, check the correlation matrix, then review distributions and pairwise plots - was similar to what I usually do in previous EDA exercises just that here I was forced to formalise it better and ground it academically. I used this as some sort of template later on for the Team Project and kept it as a pattern. What I would do differently: I read too much into the correlation heatmap before checking the distributions, then corrected that during the exercise.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'As I''m working in parallel I''m already using the same five-step workflow in the Team Project cleaning pipeline: check the dataset shape, deal with missing values, run descriptive statistics, review correlations, and then check distributions before drawing conclusions. Although I''m not in charge of the EDA I provided some assistance and guidance to the member in charge following this pattern and the necessary scripts for it. This should help me avoid treating a correlation heatmap as enough evidence on its own.'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-2/scatter_mpg_vs_weight.png
+    label: MPG VS WEIGHT
+  - url: /assets/images/unit-2/scatter_mpg_vs_horsepower.png
+    label: MPG VS HORSEPOWER
+  status: complete
+  key_takeaway: This activity reminded me not to jump too quickly from a heatmap to a conclusion. Correlation is useful, but only after I check the distributions and understand what the variables are doing. The five-step EDA flow became a pattern I reused later in the Team Project.
+  collapse_reflection: true
+  artefact: 'Pearson correlation heatmap + scatter plots (MPG vs weight, MPG vs horsepower) on UCI Auto-mpg. Evidence: E2.7-E2.9.'
+  collapse_links: true
+- id: unit3-corr-regression
+  unit: '3'
+  title: Correlation and Regression
+  activity: '"Work through the four module notebooks (covariance and Pearson, linear regression, multiple linear regression, polynomial regression). For each, run the tutorial default and then change one parameter to observe how the technique reacts to noise, extrapolation, scale or capacity." (University of Essex Online, n.d.)'
+  description: 'Run four notebooks with the default settings from tutorial and a few variable changes to show what breaks and where: covariance and Pearson, linear, multiple linear and polynomial regression.'
+  figure: /assets/images/unit-3/ex4_polynomial_three_degrees.png
+  figure_alt: Polynomial regression fitted at three degrees (1, 3 and 10)
+  figure_caption: Polynomial regression at three degrees (deg 1, 3, 10). E3.4
+  body: 'Four experiments on the tutorial datasets, each with a variable-change probe:
+
+
+    - **Ex1 Pearson correlation**: In the default run, Pearson r is about 0.888. When I doubled the noise, it dropped to about 0.698. When I decoupled the variables, it almost disappeared at about 0.022. The covariance size stayed quite similar in the first two runs, so the main change was the spread of the points, not only the direction of the relationship. This helped me understand Pearson r better: it shows how tightly two variables move together, not just whether covariance is large. Similar to this exercise I had practised in numerical analysis in the previous module.
+
+    - **Ex2 Linear regression**: The regression gave a slope of about -1.75, an intercept of about 103.1, and r ≈ -0.759. The in-range prediction at x = 10 matched the tutorial check, with y ≈ 85.59. The prediction at x = 20 gave y ≈ 68.08, but it is outside the observed range and the sample is only n = 13. This was a typical reminder that a regression line can still produce a number even when the prediction is not really reliable.
+
+    - **Ex3 Multiple linear regression**: The model gave coefficients of Weight = 0.00755 and Volume = 0.00781, with an intercept of 79.70. The predicted CO2 value for Weight = 2300 and Volume = 1300 was about 107.21, which was in line with the tutorial. When I changed the weight to 3300 and kept the volume at 1300, the prediction increased to about 114.76. This made the weight effect easier to see: adding 1,000 kg increased the predicted CO2 by roughly 7.55, based on the model coefficient.
+
+    - **Ex4 Polynomial regression**: I compared three polynomial degrees side by side in the figure above. The higher-degree model gave a better fit on the visible points, but that does not mean it is the better model. The main lesson was that a rising R² is not enough on its own. The real test is whether the model still generalises beyond the points used to fit it.'
+  micro_what: 'Ran each notebook first with the default settings from the tutorial, then changed one variable at a time to see what happened: more noise, extrapolation, scaled prediction and polynomial degree. The three-degree polynomial figure made the point: deg 1 underfit, deg 3 fit the pattern, and deg 10 overfit. Lessons learned: model fit and generalisation are not the same thing.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'Each method made sense when the data supported the assumption behind it: Pearson needed the spread of the points to be checked, linear regression needed in-range prediction, multiple regression needed the predictors to make sense together, and polynomial regression needed a check against overfitting. The main lesson for me was not only the regression formulas. Each exercise forced a small design decision: what am I assuming before I trust the result? This is close to how I think in IT architecture: document the assumption first, make it rational, then test if the evidence supports it. It is not full hypothesis testing, but it has the same discipline. In the Team Project I incorporate this into the analysis. This helped me look at R² together with the modelling assumptions.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'As I''m working in parallel I already applied these four checks as a small modelling discipline to the Team Project scripts: check the spread before reporting a correlation, check the data range before using a fitted line, check whether the predictors make sense together before reading coefficients, and check whether a higher-degree model is just overfitting. In my results analysis for the Team Project I already use the same questions as my challenge framework (Mella, 2026n).'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - label: EX1 CORRELATION
+    url: /assets/images/unit-3/ex1_correlation_three_regimes.png
+  - label: EX2 LINEAR
+    url: /assets/images/unit-3/ex2_linear_regression.png
+  - label: EX3 MULTIPLE
+    url: /assets/images/unit-3/ex3_multiple_regression.png
+  status: complete
+  key_takeaway: The regression notebooks made me slow down and write the assumption before trusting the result. A model can always produce a line or a higher R², but that does not mean it generalises. The main lesson for me was to check what the data actually supports before reading the metric as an answer.
+  collapse_body: true
+  collapse_reflection: true
+  artefact: 'Four notebooks (correlation, linear, multiple linear, polynomial), each with default + variable-change run. Evidence: E3.1-E3.4.'
+  collapse_links: true
+  body_label: Show results
+- id: unit4-linear-regression
+  unit: '4'
+  title: Linear Regression with scikit-learn
+  activity: '"Apply linear regression with scikit-learn: first replicate the FuelConsumption demo (CO2 vs engine size), then move to the World Bank GDP and Population datasets (2001-2021) to compute a country-level Pearson correlation and a linear regression of mean population on mean per-capita GDP." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-4/ex2_population_vs_per_capita_gdp.png
+  figure_alt: Population vs per-capita GDP, raw and log-log panels
+  figure_caption: Mean population versus mean per-capita GDP, raw and log-log scales. E4.2
+  body: ''
+  micro_what: 'Replicated the FuelConsumption scikit-learn demo first, using engine size to predict CO2 emissions. Then I moved to the World Bank 2001-2021 data (World Bank, 2024a, 2024b) and tested mean population against mean per-capita GDP by country, first on raw scale and then on log-log scale. The useful part was not only fitting the line. It was the preparation before the line: regional aggregates such as WLD, EUU and OED distorted the country-level Pearson view, so they had to be filtered out before the result made sense.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'This exercise was less about learning that linear regression exists, because I had some basic classical ML practice already. The growth for me was in the workflow around it. I had to clean the input, remove aggregate rows, decide the scale, run the same comparison again, and only then read the correlation and regression result. That is close to how I work with scripts in my normal technical work: not building software products, but making small repeatable steps that reduce mistakes. What I would do differently: I went to Pearson on the raw scale too quickly, then only moved to log-log after the plot made the problem obvious.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: For the Team Project I'm already applying pre-processing and scale choice as part of the modelling result. Before I report a correlation or fitted line, I'm checking now whether the rows are really comparable, whether aggregates are mixed with real observations, and whether the raw scale is hiding the pattern. This is part as well of my proposal to use a 5-stage script workflow analogous in stages to CRISP-DM so it stays simple but easy to rerun checks after changing one decision.
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-4/ex1_fuel_co2_vs_enginesize.png
+    label: FUEL CO2 vs ENGINE
+  - url: /assets/images/unit-4/ex2_population_vs_per_capita_gdp_loglog.png
+    label: LOG-LOG REGRESSION
+  status: complete
+  key_takeaway: 'The useful learning was not only fitting the regression line. It was everything before the line: removing regional aggregates, checking whether rows were comparable, and choosing the right scale. Once I did that, the result became much easier to defend.'
+  collapse_reflection: true
+  artefact: 'FuelConsumption CO2 vs engine size + Population vs per-capita GDP regression (raw and log-log). Evidence: E4.1-E4.3.'
+  collapse_links: true
+- id: unit5-jaccard
+  unit: '5'
+  title: Jaccard Coefficient Calculations
+  activity: '"Compute the Jaccard similarity coefficient for three patients on a six-attribute clinical record (Fever, Cough, Test 1-4) using the asymmetric-binary encoding rule, then explain which pair is most similar and which is least." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-5/jaccard_heatmap.png
+  figure_alt: Jaccard coefficient matrix for the three patients
+  figure_caption: Jaccard coefficient matrix for three patients on six clinical attributes. E5.1
+  body: ''
+  micro_what: Worked through the three-patient Jaccard example by hand first, using the six binary attributes to count M11, M10 and M01. Then I reproduced the same calculation in code and checked the heatmap and decomposition plot. Doing it by hand before coding helped me see that the main decision was not the formula itself, but how the attributes were encoded before the similarity score was calculated.
+  micro_what_lo:
+  - LO2
+  micro_so_what: 'The useful lesson was that similarity scores are not neutral if the encoding is unclear. In this example, the absent-versus-not-done attribute changes the denominator, so treating it as 0 changes the Jaccard result. That rule has to be decided before the calculation, not adjusted after the heatmap looks strange. This would fit the way I normally build Python scripts: small repeatable checks, but with the data rules written down first.'
+  micro_so_what_lo:
+  - LO2
+  micro_now_what: 'For the Team Project I''m already embedding this type of logic in the 5-script pipeline: I keep the encoding step separate and visible before running any similarity or distance calculation. If I convert categories into binary columns, I write down what 1 and 0 mean and check whether the distance calculation is still fair. This is especially important for K-means, because a small encoding choice can change which listings appear close to each other.'
+  micro_now_what_lo:
+  - LO2
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-5/jaccard_decomposition.png
+    label: JACCARD DECOMPOSITION
+  status: complete
+  key_takeaway: Jaccard looked simple at first, but the activity showed me that the formula is not the whole issue. If the encoding rule is unclear, the similarity score can become misleading. I need to decide what 1 and 0 mean before calculating anything, not after the heatmap looks odd.
+  collapse_reflection: true
+  artefact: 'Jaccard similarity matrix and M11/M10/M01 decomposition for three patients on six binary attributes. Evidence: E5.1-E5.2.'
+  collapse_links: true
+- id: unit6-team-project
+  unit: 1-6
+  title: "Team Project: Project Report"
+  activity: '"Group D, Track 1: develop a classical ML solution (regression for price prediction, clustering for customer segmentation) on the Airbnb NYC 2019 dataset to address an agreed business question. Deliver a 1,000-word executive analytical report and a peer-review form, as a virtual development team, by 23:55 UK on 8 June 2026." (University of Essex Online, n.d.)'
+  description: Group D, Airbnb NYC 2019. Track 1 classical ML project using regression for price prediction and clustering for listing segmentation. The work was shaped as a 1,000-word executive analytical report, mapped to CRISP-DM and supported by scripts, meeting records and a decision log and design document. The activity ran from week 1 team formation to the week 6 submission.
+  body: 'Group D had six members. I took the Coordinator role from week 1 and covered the practical coordination work: meeting setup, minutes, asset repository, group communications, timeline tracking and risk management. As the project developed, my contribution also covered the ML workstream, the written-report workstream and support for EDA / cleaning. For ML, I worked through the regression and clustering pipeline on the AB_NYC_2019 Airbnb dataset. For the report, I acted as the integrator so the business question, results, limitations and recommendations are coherent and consistent. For EDA and cleaning, I produced the design specification, a cleaning script and a handover note for the workstream responsible. The project page keeps the main evidence: kickoff deck, working agreement, decision log, meeting deck, scripts, design documents and email records.'
+  micro_what: 'Took the Coordinator role in Group D and kept the work moving through meetings, minutes, repository setup, communications, timeline checks and risk tracking. The group had six members, but three were functionally active across weeks 1-6, so task allocation had to follow actual engagement rather than the original plan. My work covered three areas: ML workstream responsible for the regression and clustering run on AB_NYC_2019, written report workstream responsible as integrator, and EDA / cleaning support through the design specification, cleaning script and handover material.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  - LO4
+  micro_so_what: 'The main lesson was that coordination is not separate from the technical work when the group is uneven. If meetings are missed and tasks are not picked up, the critical path has to stay with the people who are actually active. That fits Weick (1976) loose coupling: the group can stay flexible, but only if the links between tasks are visible enough to manage. Faraj and Sproull (2000) and Cramton (2001) also helped me frame coordination as part of team performance, not just admin. The three-tier decision process I built for the project (Mella, 2026j) gave me a practical way to keep decisions traceable without making the process too heavy (Sackett et al., 1996; Hevner et al., 2004). What I would not repeat: I worked around partial attendance for too long before escalating it. By mid-project, the same pattern was still creating risk, including a late-appearing member asking for onboarding while the shared documentation had already been available.'
+  micro_so_what_lo:
+  - LO4
+  micro_now_what: 'For the Individual Presentation, I will keep the same practical habits but apply them earlier: define the scope, keep a short choice log, record limits beside the result, and check that the evidence supports the claim before I present it. For group work, I will also escalate non-engagement sooner. Waiting too long protects the tone of the group, but it can create extra risk for the active members.'
+  micro_now_what_lo:
+  - LO3
+  - LO4
+  feedback: Placeholder - tutor grade and feedback to be added once received.
+  feature: true
+  feature_pill: TEAM PROJECT
+  deep_page: /projects/team-project/
+  links: []
+  status: complete
+  key_takeaway: This project taught me that coordination is part of the technical work, not something separate from it. Because the group engagement was uneven, I had to keep decisions traceable and allocate work around who was actually active. The three-tier decision process helped, but I should have escalated non-engagement earlier.
+  collapse_body: true
+  collapse_reflection: true
+- id: unit6-kmeans-tutorial
+  unit: '6'
+  title: K-Means Clustering Tutorial
+  activity: '"Apply k-means clustering on three reference datasets: Iris and Wine compared against their species / cultivar labels (purity, ARI) and a WeatherAUS sample unsupervised (elbow + PCA). Discuss the choice of k and the interpretation of cluster labels." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-6/kmeans_pca_three_datasets.png
+  figure_alt: PCA scatter of k-means clusters across Iris, Wine and WeatherAUS
+  figure_caption: PCA scatter of k-means clusters across the Iris, Wine and WeatherAUS datasets. E6.K1
+  body: ''
+  micro_what: 'Ran k-means on three reference datasets in two different ways. Iris (Fisher, 1936) and Wine (Aeberhard, Coomans and de Vel, 1992) had labels, so I could compare the clusters against species / cultivar labels using purity and ARI. WeatherAUS (Young, 2019) had no target label for this task, so I used elbow and PCA plots to inspect the grouping. I used this as the working pattern for the Team Project clustering step: standardise first, test more than one k, then inspect the group profiles before naming the clusters.'
+  micro_what_lo:
+  - LO2
+  - LO4
+  micro_so_what: 'The three datasets did not behave the same, which was the useful part. Wine looked like the clean example, Iris was close but not perfect, and WeatherAUS did not give one obvious answer for k. That made me more careful with clustering. A cluster label is not a real category just because the algorithm produced it. ARI was more useful than purity when real labels existed, and standardisation had to happen before distance-based clustering. What I would not repeat: I looked too hard for a sharp elbow on WeatherAUS before accepting that the data was not that neat.'
+  micro_so_what_lo:
+  - LO1
+  - LO2
+  - LO4
+  micro_now_what: 'In the Team Project I have already applied this discipline in `05_clustering.py`, the clustering stage of the 5-script pipeline: I scale the variables, compare several k values, check elbow and silhouette together, and inspect the cluster profiles before writing any label. Each of these choices is logged in the three-tier decision process so the rationale is traceable. The Airbnb groupings are listing segments, not customer groups, and I name them that way directly in the report.'
+  micro_now_what_lo:
+  - LO4
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-6/weatherAUS_elbow.png
+    label: WEATHERAUS ELBOW
+  - url: /assets/images/unit-6/weatherAUS_k_grid.png
+    label: WEATHERAUS K GRID
+  status: complete
+  key_takeaway: K-means made me more careful with clustering. A cluster is not a real-world category just because the algorithm produced it. I learned to standardise first, compare more than one k, and use ARI or profile checks before giving clusters a business meaning.
+  collapse_reflection: true
+  artefact: 'K-means on Iris and Wine (purity / ARI) + WeatherAUS (elbow + PCA). Evidence: E6.K1-E6.K3.'
+  collapse_links: true
+- id: midmodule-reflection
+  unit: ''
+  title: Mid-module reflection
+  activity: ''
+  description: ''
+  body: 'In the middle of the journey I had a realisation moment where I connected all dots: this module was clearly the culmination of all the other domains I have been taught in the programme bringing together a coherent practice: Understanding AI as the foundation (including the WEKA exercise I genuinely enjoyed), Launch into Computing as the engineering toolkit which most content I already knew but forced me to look with historical and academic perspective which I lacked, Numerical Analysis as the mathematical and statistical grounding (descriptive statistics, hypothesis testing, distributions, numerical methods) to read, challenge and critically present and gain so-called numeracy skills, with the courses in mathematics and ML I did beforehand to the programme to prepare myself, and the baggage of twenty years plus of architecture work under my skin. The deep learning weeks were where everything connected to step up my learning journey, and most of my fears about the technical challenge fell away. By then I was already deep into making the modeling and test for the final assignment, and this module turned curiosity into momentum.'
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+- id: unit7-perceptron
+  unit: '7'
+  title: Perceptron Tutorial
+  activity: '"Work through the three perceptron notebooks: a single neuron with step activation and fixed weights, a single-layer perceptron learning the AND operator by weight update, and a multi-layer perceptron learning XOR by back-propagation. Discuss why XOR requires the hidden layer." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-7/xor_error_curve.png
+  figure_alt: XOR multi-layer perceptron training error curve
+  figure_caption: Multi-layer perceptron training error curve on XOR (2-3-1 sigmoid network). E7.2
+  body: ''
+  micro_what: Worked through the perceptron notebooks from the simple sum-and-step idea to AND, then to the 2-3-1 sigmoid network for XOR. AND was useful because the weight updates stayed easy to follow. XOR was the more important part for me because the single linear boundary failed, and the hidden layer made the difference visible through the error curve and decision surface. I am comfortable with Python scripting, but this was different from scripting a cleaning or regression flow. Here I had to follow what the weights were doing step by step.
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: The main lesson was the geometry, not only the code. AND is linearly separable, so a single-layer perceptron can learn it. XOR is not, so the model needs the hidden layer to build a more useful boundary. Before this activity I understood the idea of back-propagation in theory, but it still felt abstract. Seeing the small network learn XOR made neural networks less like a black box. This matters for my own learning because deep learning was the area where I had the biggest gap compared with classical ML.
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'I will keep the AND-versus-XOR example as my basic check before reaching for a more complex model: can one linear boundary do the job, or is the pattern already non-linear? For later neural-network work, I will also look at the training curve and decision surface before trusting the result. A model can run successfully in code and still not be learning the pattern I think it is learning.'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - label: PERCEPTRON / AND SUMMARY (E7.1)
+    url: /assets/images/unit-7/simple_perceptron_summary.png
+  - label: XOR DECISION SURFACE (E7.3)
+    url: /assets/images/unit-7/xor_decision_surface.png
+  status: complete
+  key_takeaway: The AND and XOR exercises made neural networks much less abstract for me. AND worked with one linear boundary, but XOR needed the hidden layer. Seeing that small network learn XOR helped me understand that the hidden layer is about geometry, not magic.
+  collapse_reflection: true
+  artefact: 'Single-layer perceptron on AND + 2-3-1 sigmoid MLP on XOR with training error curve and decision surface. Evidence: E7.1-E7.3.'
+  collapse_links: true
+- id: unit8-seminar
+  unit: '8'
+  title: Comparing ML and Deep Learning Seminar
+  activity: '"Three-part seminar preparation: (1) read Yu et al. (2024) on CNN vs conventional ML for supply chain management distribution cost and reflect critically; (2) reflect on explainability tooling (SHAP, LIME); (3) build a recommender system on MovieLens 100K and explain one prediction." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-8/recommender_rmse_comparison.png
+  figure_alt: Recommender RMSE comparison across three models on MovieLens 100K
+  figure_caption: RMSE comparison across three collaborative filtering models on the MovieLens 100K dataset. E8.1
+  body: ''
+  micro_what: 'Worked through the Unit 8 seminar in three parts: read Yu et al. (2024) on CNN versus conventional ML for supply-chain prediction, reviewed SHAP and LIME as explainability tools, and built three recommender models on MovieLens 100K (Harper and Konstan, 2016). I started with the global mean baseline, then added user and item bias, then tested matrix factorisation with 20 factors and SGD. I also decomposed one prediction in SHAP style: μ + b_u + b_i + p·q = 3.530 + 0.241 + 0.351 + 0.183 = 4.305.'
+  micro_what_lo:
+  - LO3
+  - LO4
+  micro_so_what: 'The useful result was that the more complex model was not automatically better. RMSE moved from 1.140 for the baseline to 1.032 for the bias model, but matrix factorisation was 1.033 and the training curve showed overfitting. That made the seminar point more practical for me: a larger model still has to beat a simple baseline and explain its result. Yu et al. (2024) reported a strong CNN result, but I still wanted to know about variance, latency and feature attribution before treating it as the better option. This fits my current learning stage: I can script and compare models, but I still need the baseline and explanation step to stop myself trusting the larger model too quickly.'
+  micro_so_what_lo:
+  - LO3
+  - LO4
+  micro_now_what: For later work, I will keep the baseline in the comparison and not treat a more complex model as better just because it looks more advanced. I will check the metric, the training curve and at least one explanation of the prediction before making a claim. For the Individual Presentation, this means I should show why the selected model is good enough, not only that it produced a result.
+  micro_now_what_lo:
+  - LO3
+  - LO4
+  feature: false
+  deep_page: ''
+  links:
+  - label: MF TRAINING CURVE (E8.2)
+    url: /assets/images/unit-8/recommender_mf_training.png
+  - label: SHAP-STYLE DECOMPOSITION (E8.3)
+    url: /assets/images/unit-8/recommender_explainability.png
+  status: complete
+  key_takeaway: This seminar helped me stop assuming that the bigger model is automatically better. In the recommender activity, the more complex model did not clearly beat the simpler baseline. I now see the baseline, the metric and the explanation step as part of the evidence, not optional extras.
+  collapse_reflection: true
+  artefact: 'Three-model recommender stack on MovieLens 100K (baseline -> bias -> matrix factorisation) + SHAP-style decomposition. Evidence: E8.1-E8.3.'
+  collapse_links: true
+- id: unit8-gradient-descent
+  unit: '8'
+  title: Gradient Descent Tutorial
+  activity: '"Run the Mayo (2017) gradient descent tutorial: implement linear regression by gradient descent on y = 2x + 3 and vary the learning rate and the number of iterations to map the cost / convergence / stability triangle." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-8/gradient_descent_lr_comparison.png
+  figure_alt: Cost vs iteration for four learning rates
+  figure_caption: Cost versus iteration (log-y) for four learning rates on the tutorial linear regression. E8.4
+  body: ''
+  micro_what: Ran the Mayo (2017) gradient descent tutorial on the toy y = 2x + 3 linear-regression problem. I changed the learning rate across four values and the iteration count across five settings, then recorded the final parameters and cost for each run. This was useful because it was not just calling scikit-learn. I had to write the update loop and see what changed after each step.
+  micro_what_lo:
+  - LO2
+  micro_so_what: 'The learning rate behaved in three clear ways: too small was slow, a good value moved down the cost curve, and too large made the cost blow up quickly. I expected this in theory, but seeing the high-rate run fail after only a few iterations was still a bit surprising. It was different seeing it in action. The iteration-count sweep also showed that "more iterations" is not automatically better.'
+  micro_so_what_lo:
+  - LO2
+  micro_now_what: For later gradient-based work, I will start with a small learning-rate sweep before trusting a training run. I will keep the cost curve with the final cost, because the final number alone can hide what actually happened during training.
+  micro_now_what_lo:
+  - LO2
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-8/gradient_descent_iter_sweep.png
+    label: ITERATION SWEEP FIGURE
+  status: complete
+  key_takeaway: I knew in theory that the learning rate mattered, but seeing it fail made the point much clearer. Too small was slow, a reasonable value moved the cost down, and too large exploded very quickly. The safe window was narrower than I expected.
+  collapse_reflection: true
+  artefact: 'Gradient-descent loop on y = 2x + 3 with learning-rate and iteration-count sweeps. Evidence: E8.4-E8.5.'
+  collapse_links: true
+- id: cd2
+  unit: 8-10
+  title: 'Collaborative Discussion 2: Legal and Ethical views on ANN applications'
+  activity: '"Discuss the legal and ethical considerations of ANN applications: post an initial perspective by mid-Unit 8, respond substantively to at least two peers across Units 8-9, and close with a synthesis summary post by the end of Unit 10." (University of Essex Online, n.d.)'
+  description: ''
+  body: ''
+  micro_what: Placeholder - to be authored. The initial post will build on the cyberresiliency, implementation-gap and dual-use framing developed across CD1 and the Unit 8-10 cards.
+  micro_what_lo:
+  - LO1
+  micro_so_what: Placeholder - to be authored after peer responses.
+  micro_so_what_lo:
+  - LO1
+  micro_now_what: Placeholder - to be authored after summary post.
+  micro_now_what_lo:
+  - LO1
+  feature: false
+  deep_page: ''
+  links: []
+  status: placeholder
+- id: unit9-cnn-model
+  unit: '9'
+  title: CNN Model Activity
+  activity: '"Train the tutorial CIFAR-10 CNN, run the prediction-index exercise on x_test[1..15], and discuss the model''s behaviour. Read Wall (2019) on facial-recognition bias and produce a paired ethics commentary." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-9/prediction_grid_1_to_15.png
+  figure_alt: 3x5 grid of CIFAR-10 test predictions for indices 1-15
+  figure_caption: Prediction grid for x_test[1..15] on the tutorial CIFAR-10 CNN. E9.4
+  body: ''
+  micro_what: Trained the tutorial CNN on CIFAR-10 (Krizhevsky and Hinton, 2009) using the four-convolution-layer Keras model. This was my first complete CNN training. I had Python and classical ML experience before, but not hands-on CNN work. After training, I ran the 15-image prediction-index exercise and checked the confidence values, not only the class labels. I also paired the activity with Wall (2019) on facial-recognition bias for the ethics part.
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'The model reached 0.7782 test accuracy, but the curve was more useful than the headline number. Validation accuracy peaked around epoch 13, then flattened while training accuracy kept rising, so the mild overfitting was visible. The 15-image check also helped: all 15 were correct, but confidence still ranged from 0.460 for a cat/dog case to 1.000 for easier images such as truck and horse. That made me read predictions with more caution. Wall (2019) also made the ethics point clear. Object recognition can be useful, but the same type of model can be moved into surveillance. I should ask what the model is being used for before treating accuracy as the main success measure.'
+  micro_so_what_lo:
+  - LO1
+  - LO2
+  micro_now_what: 'I will use early stopping earlier and keep the training curve beside the final accuracy. I will also report confidence examples, especially where the class is correct but the model is unsure. So there is an ethics angle beyond accuracy and performance: for Unit 10 and CD2 have in mind the dual-use aspect: use case and impact, could the model be used in an unethical way?'
+  micro_now_what_lo:
+  - LO1
+  - LO2
+  feature: false
+  deep_page: ''
+  links:
+  - label: CNN ARCHITECTURE (E9.1)
+    url: /assets/images/unit-9/cnn_architecture_cifar10.png
+  - label: TRAINING CURVE (E9.3)
+    url: /assets/images/unit-9/training_curve.png
+  - label: SAMPLE PREDICTION (E9.5)
+    url: /assets/images/unit-9/sample_correct.png
+  - label: ETHICS DISPARITY (E9.2)
+    url: /assets/images/unit-9/cnn_recognition_ethics_disparity.png
+  status: complete
+  key_takeaway: Training my first CNN was a big step, but the 77.82% accuracy was not the most useful part. The confidence spread, mild overfitting and ethics reading made me more cautious. Before I call a model successful, I need to ask where it will be used and what happens when it is wrong.
+  collapse_reflection: true
+  artefact: 'Tutorial CIFAR-10 CNN at 77.82% test accuracy + 15/15 prediction-index exercise + ethics disparity figure. Evidence: E9.1-E9.5.'
+  collapse_links: true
+- id: unit10-cnn-tutorial
+  unit: '10'
+  title: CNN Tutorial
+  activity: '"Use the CNN Explainer (Wang et al., 2020) to step through the Tiny VGG model: walk a custom input through the convolution, ReLU and pooling layers, observe the layer-wise activations, and discuss what the model does and where it fails." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-10/inputs_panel.jpg
+  figure_alt: 2x2 panel of the four CNN Explainer inputs
+  figure_caption: Four-input experiment panel through the CNN Explainer Tiny VGG model. E10.0
+  body: 'Four custom inputs through the Wang et al. (2020) CNN Explainer Tiny VGG model (10 classes including school_bus, orange, espresso, ladybug, sport_car):
+
+
+    | # | Input | Source | Predicted | Confidence | Reading |
+
+    |---|---|---|---|---:|---|
+
+    | 1 | US yellow school bus | Vonore Middle School (2025) | school_bus | 0.9730 | In-distribution baseline: confident and correct |
+
+    | 2 | Argentinian orange school bus | TN (2024) | sport_car | 0.5137 | Dataset bias: ~18.7x lower confidence on correct label (school_bus 0.0274) |
+
+    | 3 | NYC yellow taxi | Williamson (2024) via Alamy | orange (the fruit) | 0.4169 | Colour beats shape: yellow saturation dominates vehicle geometry (school_bus 0.1790) |
+
+    | 4 | Selfie | author''s own photograph | espresso | 0.5686 | OOD softmax overconfidence: model commits to a non-existent class |
+
+
+    Case 2 follows the same pattern as Buolamwini and Gebru (2018) Gender Shades, moved from faces to objects. Cases 3 and 4 expose the softmax-overconfidence problem behind the Unit 9 deployment-risk argument.'
+  micro_what: 'Used the Wang et al. (2020) CNN Explainer Tiny VGG model with four custom inputs: a US yellow school bus (Vonore Middle School, 2025), an Argentinian orange school bus (TN, 2024), a NYC yellow taxi (Williamson, 2024 via Alamy), and a selfie as an out-of-distribution input. I recorded the predicted class and confidence: school_bus 0.9730, sport_car 0.5137, orange 0.4169, and espresso 0.5686. The Argentinian bus case made the dataset-bias point very concrete for me because it''s related to my own personal background.'
+  micro_what_lo:
+  - LO1
+  - LO2
+  micro_so_what: 'The four inputs showed three failure modes: dataset bias, colour beating shape, and softmax confidence on an out-of-distribution image. The selfie result was the clearest warning because the model still forced a label, espresso, with 0.5686 confidence. This connected with how I think in cyberresiliency: do not only test the normal case. Push the edge cases and check where the assumptions fail.'
+  micro_so_what_lo:
+  - LO1
+  - LO2
+  micro_now_what: For later CNN work, I will check more than the top predicted class. I will look at confidence, edge cases, out-of-distribution inputs, and whether the model should abstain instead of forcing a label. This activity pushed me further into deep learning after Unit 9 and made me want to test CNN behaviour directly in Python, not only through the explainer page.
+  micro_now_what_lo:
+  - LO1
+  - LO2
+  feature: false
+  deep_page: ''
+  links:
+  - label: 'CASE 1: US BUS (E10.1)'
+    url: /assets/images/unit-10/01_bus_us_results.jpg
+  - label: 'CASE 2: ARGENTINIAN BUS (E10.2)'
+    url: /assets/images/unit-10/02_bus_ar_results.jpg
+  - label: 'CASE 3: NYC TAXI (E10.3)'
+    url: /assets/images/unit-10/03_taxi_results.jpg
+  - label: 'CASE 4: SELFIE (E10.4)'
+    url: /assets/images/unit-10/04_selfie_results.jpg
+  status: complete
+  collapse_body: true
+  collapse_reflection: true
+  key_takeaway: 'This was one of the clearest activities for me. The same Tiny VGG model behaved very differently across four inputs: a normal case, a biased bus case, a colour/shape confusion, and an out-of-distribution selfie. It showed me why edge cases and confidence checks matter more than a headline accuracy number.'
+  artefact: 'CNN Explainer Tiny VGG four-input experiment + per-case results panels. Evidence: E10.0-E10.4.'
+  collapse_links: true
+  body_label: Show results table
+- id: unit11-model-performance
+  unit: '11'
+  title: Model Performance Measurement Tutorial
+  activity: '"Work through the model performance measurement notebooks: classification metrics (confusion matrix, precision, recall, F1, ROC AUC) and regression metrics (MAE, RMSE, R²). Run the parameter-change exercise (vary the signal-to-noise margin for AUC, vary polynomial degree for R²) and discuss what each metric does and does not say." (University of Essex Online, n.d.)'
+  description: ''
+  figure: /assets/images/unit-11/auc_signal_noise.png
+  figure_alt: ROC curves at four signal-to-noise margins
+  figure_caption: ROC curves at four signal-to-noise margins on a synthetic binary classifier. E11.1
+  body: ''
+  micro_what: 'Worked through the Unit 11 metric notebooks for both classification and regression. For classification, I changed the signal-to-noise margin and watched AUC move from 0.662 to 0.821, 0.961 and then 1.000. I also read the confusion matrix at margin 1.2: TN 670, FP 68, FN 91, TP 671, with Accuracy 0.894, Precision 0.908, Recall 0.881 and F1 0.894. For regression, I changed the polynomial degree and compared train against test R². Train R² kept rising, but test R² peaked at degree 2 with 0.888, then started to drop at higher degrees.'
+  micro_what_lo:
+  - LO1
+  - LO3
+  micro_so_what: 'AUC was part of a wider model evaluation; in my credit-risk proposal that I did for the previous module, I used ROC AUC to compare default-risk classifiers, then checked bad-class recall and a cost-sensitive version because false negatives were more expensive than false positives (Fawcett, 2006; Elkan, 2001). In the Numerical Analysis diabetes work, AUC showed reasonable separation between the two groups, but sensitivity was lower, so the model was better at ruling people out than catching every positive case. Here there was a bit of expansion on the usage, the data was synthetic and the signal-to-noise margin changed step by step. AUC moved from 0.662 to 0.821, 0.961 and then 1.000, so I could see directly how better separation changes the score. The confusion matrix then showed the other side: what happens at one specific threshold. The polynomial exercise made the same point for regression. The lesson is that a metric only helps if I explain what decision it supports: what error matters, what threshold is used, and whether the result still holds on test data.'
+  micro_so_what_lo:
+  - LO1
+  - LO3
+  micro_now_what: 'Among other areas, I am already using this in the Individual Presentation work. The lesson is to start with what error matters more, then choose the metric around that. For classification, that means AUC for separation, plus a confusion matrix, precision and recall at the threshold I actually use. For regression or model-capacity checks, I will show train and test results together so overfitting is visible. This is where my previous AUC work helps: I know the metric, but now I can explain better how it supports a decision, not only report the value.'
+  micro_now_what_lo:
+  - LO1
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - label: CONFUSION MATRIX (E11.2)
+    url: /assets/images/unit-11/confusion_matrix.png
+  - label: R² VS POLY DEGREE (E11.3)
+    url: /assets/images/unit-11/r2_polynomial_degree.png
+  status: complete
+  key_takeaway: The metric only matters if I can explain the decision behind it. AUC, F1, recall or R² are not just numbers to report; they depend on the error that matters, the threshold used, and whether the result still holds on test data. Cost asymmetry is also an ethical choice, not only a technical one.
+  collapse_reflection: true
+  artefact: 'AUC sweep across four signal-to-noise margins + confusion matrix at margin 1.2 + R²-vs-polynomial-degree sweep. Evidence: E11.1-E11.3.'
+  collapse_links: true
+- id: unit11-cnn-object-recognition
+  unit: '11'
+  title: Individual Presentation
+  activity: '"Deliver a 20-minute individual presentation comparing classical machine learning and deep learning on a chosen problem, with critical evaluation, explainability and an ethics section. Submission 13 July 2026." (University of Essex Online, n.d.)'
+  description: 'My Individual Presentation: paediatric chest X-ray classification compared across classical ML (HOG features + SVM) and deep learning (ResNet50 transfer learning). Same data, same test set, same metrics. Built on the three-tier decision process from the Team Project, applied here to roughly 20 modelling decisions.'
+  micro_what: 'I built two competing classifiers on the Kermany et al. (2018) paediatric chest X-ray dataset: HOG + SVM on the classical side, and ResNet50 transfer learning on the deep-learning side. I kept the same train/validation split and the same held-out test set across both pipelines so the comparison was fair. The headline numbers were SVM macro-F1 0.6846 with a 27-point CV-test gap, and CNN macro-F1 0.7721 with a 12-point CV-test gap. The CNN generalised about twice as cleanly, so I recommended ResNet50 as the triage candidate with five non-negotiable safeguards: clinician-set threshold, region-importance heatmap on demand, weekly subgroup monitoring, OOD rejection of adult X-rays, and human-in-the-loop always. The EDA stage reused the 5-script pipeline shape from the Team Project. The three-tier decision process was extended to roughly 20 modelling decisions, each tagged Tier A, Tier B or Tier C.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'I am critical of myself here. I took on more than I should have for one person on a hard deadline. I picked a clinical-imaging problem with no prior experience in image processing or chest-X-ray imaging, then added transfer learning, two empirical comparison tests, XAI on both models, subgroup analysis, calibration discussion and a UML deployment architecture diagram. The scope matched the assignment, but it stretched the work too far. The cost showed. Numbers drifted between runs: SVM macro-F1 0.6480 -> 0.6846, and CNN macro-F1 0.8750 -> 0.7721 across versions. I also had moments where I mixed numbers from different runs in the deck and transcript, and reviewer rounds caught at least four of those.
+
+
+    Three lessons stay with me. First, read the framework documentation before trusting a code pattern. My Keras unfreeze loop was inert because the parent model trainable flag propagated down to nested children. What actually ran was a frozen-base feature extractor, so I reframed it honestly as a frozen-base baseline and kept the real two-phase fine-tune as future work. Second, trained-model weights are not session state. I did not preserve the v8 weights as a file, so changing one XAI tool meant a re-train and a split evidence chain. Saving the model is methodology, not housekeeping. Third, a single-seed comparison is weak for stochastic CNN training. Multi-seed averaging is needed if the comparison is meant to carry weight. The three-tier decision process helped because every choice still had a Tier A/B/C tag and a citation, even when the value or implementation needed correction.'
+  micro_so_what_lo:
+  - LO3
+  micro_now_what: 'For the next ML-heavy piece of work, I will scope smaller and go deeper. One person on a hard deadline cannot cover image-processing basics, clinical-image domain learning, transfer learning, two empirical tests, two XAI methods, subgroup analysis, calibration and a UML deployment diagram all with the same depth. I will also persist model weights from day one, with version tags tied to the result files, so a reviewer-driven change does not force a re-train. I will read framework documentation before trusting code patterns, especially where propagation rules can override what looks explicit. The three-tier decision process travels with me: every modelling choice gets a Tier A/B/C tag with a citation, even if the value later changes, because that lets me correct the work without hiding the mistake.'
+  micro_now_what_lo:
+  - LO3
+  - LO4
+  feedback: Placeholder - tutor grade and feedback to be added once received.
+  feature: true
+  feature_pill: INDIVIDUAL
+  deep_page: /projects/individual-project/
+  links: []
+  status: complete
+  body: ''
+  key_takeaway: This was the activity where I learned most from my own mistakes. I over-scoped the work, and the cost appeared in drifting numbers, mixed runs and versioning issues. The three-tier decision process helped me correct the work honestly instead of hiding the weak points.
+  collapse_reflection: true
+- id: unit12-future-of-ml
+  unit: '12'
+  title: Future of Machine Learning
+  activity: '"Unit 12 seminar on the future of machine learning: discuss how AI-driven automation is reshaping industries, examining Self-Supervised Learning, Neural Architecture Search and Edge AI, and the cross-cutting questions of ethics, scalability and sustainability." (University of Essex Online, n.d.)'
+  description: 'Unit 12 seminar on how AI-driven automation is reshaping industries. Four lenses: Self-Supervised Learning, Neural Architecture Search, Edge AI, and the cross-cutting questions of ethics, scalability and sustainability. Read against the Industry 5.0 human-centric framing and the implementation gap from CD1.'
+  body: 'The seminar asks how Self-Supervised Learning reduces labelled-data dependence, what Neural Architecture Search changes, how Edge AI supports on-device inference, and how ethics, scalability and sustainability hold up as AI adoption keeps moving.
+
+
+    Although they may seem like separate topics, they are all part of the chain and "intertwined". The hardware point resonates with me. It is not strange to me; it is the opposite. I saw GPUs first in the 1990s as 3D accelerators for games, then later as parallel-computing devices, and now as the hardware base behind much of AI and ML. I saw the impact again in my Individual Presentation work: some Intel CPU runs were taking almost a day, while Apple silicon GPU support on my M4 Pro lab machine made similar runs about 5x quicker.
+
+
+    Self-Supervised Learning connects directly to this. Labelled data is still a challenge, but SSL can learn from unlabelled data first, then use smaller labelled tasks later. Without accelerators and parallel computing, the recent wave of LLMs, CNNs, diffusion models and large-scale recommenders would likely not be developed as they are today. NAS is the area where I have less practice and hands-on evaluation, however, research shows me the advantage: search candidate architectures rather than designing everything manually. But it comes with a trade-off: more need for compute and energy, and an angle on transparency that requires careful exploration.
+
+
+    There is also a real hardware-software dependency discussion. CUDA gives NVIDIA a strong vertical stack around its own hardware, while ROCm and other open or multi-vendor approaches argue for a more open path. Without judging which side is right, the discussion is real. Edge AI adds the dual-use angle: a local accelerator in a drone, robot, sensor or industrial camera can support safety and inspection, but it can also support systems I would not want to defend. The Industry 5.0 frame helps me keep the human, sustainability and resilience questions beside the technical capability (European Commission, 2021; Metcalf, 2024).'
+  micro_what: 'Read the four seminar topics: Self-Supervised Learning, Neural Architecture Search, Edge AI, and the ethics-scalability-sustainability questions. I connected them to Industry 5.0 (European Commission, 2021), my own history with GPU acceleration, and the compute difference I saw in the Individual Presentation work. Intel CPU runs were taking almost a day, while Apple silicon GPU support on my M4 Pro lab machine made similar runs about 5x quicker.'
+  micro_what_lo:
+  - LO1
+  - LO3
+  micro_so_what: 'The seminar made AI scale feel concrete. GPUs are not new in my technical life: I saw them as 3D accelerators in the 1990s, then as parallel-computing hardware, and now as AI/ML accelerators. SSL connects to that because it can learn from unlabelled data, but only at useful scale when the compute is there. NAS adds another compute question: it can search architectures, but the search itself has a cost. The industry is still moving, but the dependency is clear. Models, accelerators, CUDA-like software stacks, open alternatives and Python ML frameworks all shape what can actually be built and repeated.'
+  micro_so_what_lo:
+  - LO1
+  - LO3
+  micro_now_what: For future AI work, I will not start with the model score only. I will ask what problem is being solved, what data is labelled or unlabelled, what hardware is needed, whether it runs on server or edge, and who is affected if it is used. A model that works well on a GPU may be too slow on CPU, too expensive to repeat, or dependent on hardware access that is not guaranteed. I will also keep the dual-use question visible. The same accelerator and model can support a useful industrial system or a harmful autonomous one, so the real decision is not only "can we automate this?", but "should we automate it here, and under what controls?".
+  micro_now_what_lo:
+  - LO1
+  - LO3
+  - LO4
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+  key_takeaway: This seminar made me think about AI less as "just the model" and more as a full dependency chain. SSL, NAS and Edge AI only work at useful scale when the hardware, energy and deployment context support them. The Industry 5.0 lens helped me keep the human, resilience and dual-use questions beside the technical excitement.
+  collapse_body: true
+  collapse_reflection: true
+  artefact: Pre-seminar reading and analysis on SSL, NAS, Edge AI and the ethics/scalability/sustainability questions.
+- id: professional-development
+  unit: '12'
+  title: Professional Development
+  activity: '"Produce a Professional Skills Matrix and an Action Plan covering the twelve UoEO skill areas plus the module-specific machine-learning skills, packaged together as a single A4 PDF and embedded on the Professional Development deep page." (University of Essex Online, n.d.)'
+  description: ''
+  body: 'My journey on this module: starting point to what I take with me at the end of it, and critically analysing the gaps that remain and how to address them into a medium-term action plan. The complete skills matrix and plan on the activity page.'
+  micro_what: ''
+  micro_what_lo: []
+  micro_so_what: ''
+  micro_so_what_lo: []
+  micro_now_what: ''
+  micro_now_what_lo: []
+  feature: false
+  deep_page: /skills-matrix/
+  links:
+  - label: OPEN PDF
+    url: /assets/evidence/professional-development/Skills_Matrix_and_PDP_Mella_v1.1.pdf
+  status: complete
+  key_takeaway: 'This page is my honest map of the module: where I started, what changed, and what gaps are still there. I did not want to smooth over the weak areas, so I turned them into a medium-term action plan I can actually carry forward.'
+  collapse_body: true

@@ -1,0 +1,15 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
+.DS_Store
+*.swp
+DEPLOY.md
+
+# Pre-submission: keep the Individual Presentation working notebook out of the
+# public repo until the final v14+ submission lands. The notebook contents
+# still reveal the project topic by reading the code; the link on
+# /projects/individual-project/ will 404 publicly until submission.
+assets/code/notebooks/individual-presentation/pneumonia_ml_vs_dl_v13_submission.ipynb

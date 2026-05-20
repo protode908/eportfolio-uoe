@@ -1,0 +1,31 @@
+{%- comment -%}
+  Renders Prev / All Units / Next navigation at the bottom of every unit page.
+{%- endcomment -%}
+{%- assign sorted_units = site.units | sort: "order" -%}
+{%- for u in sorted_units -%}
+  {%- if u.url == page.url -%}
+    {%- assign current_index = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign last_index = sorted_units.size | minus: 1 -%}
+
+<nav class="unit-nav" aria-label="Unit navigation">
+  <div class="unit-nav-prev">
+    {%- if current_index > 0 -%}
+      {%- assign prev_index = current_index | minus: 1 -%}
+      {%- assign prev_unit = sorted_units[prev_index] -%}
+      <a href="{{ prev_unit.url | relative_url }}"><- {{ prev_unit.title }}</a>
+    {%- endif -%}
+  </div>
+  <div class="unit-nav-center">
+    <a href="{{ '/units/' | relative_url }}">All units</a>
+  </div>
+  <div class="unit-nav-next">
+    {%- if current_index < last_index -%}
+      {%- assign next_index = current_index | plus: 1 -%}
+      {%- assign next_unit = sorted_units[next_index] -%}
+      <a href="{{ next_unit.url | relative_url }}">{{ next_unit.title }} -></a>
+    {%- endif -%}
+  </div>
+</nav>

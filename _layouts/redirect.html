@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+<meta charset="UTF-8">
+<title>{{ page.title | default: 'Redirecting' }}</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
+<link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+<script>window.location.replace({{ page.redirect_to | relative_url | jsonify }});</script>
+</head>
+<body>
+<p>Redirecting to <a href="{{ page.redirect_to | relative_url }}">{{ page.redirect_to }}</a>.</p>
+</body>
+</html>
