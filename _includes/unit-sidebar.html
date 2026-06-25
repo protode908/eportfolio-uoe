@@ -1,0 +1,23 @@
+{%- comment -%}
+Unit sidebar: vertical rail of 12 unit buttons rendered on every unit page.
+Highlights the current unit, applies status colour to the others.
+Compact labels: "Unit 1", "Unit 2", ..., "Unit 12".
+{%- endcomment -%}
+
+{%- assign sorted_units = site.units | sort: "order" -%}
+
+<aside class="unit-sidebar" aria-label="Unit navigation">
+  <h3 class="unit-sidebar-title">Units</h3>
+  <nav class="unit-sidebar-nav">
+    {%- for u in sorted_units -%}
+      {%- assign card_status = u.status | default: "upcoming" -%}
+      {%- assign is_current = false -%}
+      {%- if u.url == page.url -%}{%- assign is_current = true -%}{%- endif -%}
+      <a href="{{ u.url | relative_url }}"
+         class="unit-sidebar-link unit-sidebar-link--{{ card_status }}{% if is_current %} unit-sidebar-link--current{% endif %}"
+         {% if is_current %}aria-current="page"{% endif %}>
+        Unit {{ u.order }}
+      </a>
+    {%- endfor -%}
+  </nav>
+</aside>

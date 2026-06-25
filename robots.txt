@@ -1,0 +1,10 @@
+---
+# Front matter ensures Jekyll processes this file and copies it to the site root.
+permalink: /robots.txt
+sitemap: false
+---
+# All search-engine crawlers - please do not index this site.
+# This is an academic working e-Portfolio; the URL is shared directly with the tutor.
+
+User-agent: *
+Disallow: /

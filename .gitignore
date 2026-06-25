@@ -1,0 +1,15 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
+.DS_Store
+*.swp
+DEPLOY.md
+
+# Pneumonia notebooks - the *_submission notebook is tracked.
+# Any other notebook in this folder (internal working copies, drafts,
+# version bumps without _submission suffix) is ignored.
+code/individual-presentation/notebook/*.ipynb
+!code/individual-presentation/notebook/*_submission.ipynb

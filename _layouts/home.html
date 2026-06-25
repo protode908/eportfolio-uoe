@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<div class="mk-home-layout">
+
+  {% include activity-nav.html %}
+
+  <div class="mk-cards-column">
+
+    {% if content %}
+    <section class="mk-intro">
+      {{ content }}
+    </section>
+    {% endif %}
+
+    <div class="mk-module-frame">
+
+      <section class="mk-module-card mk-module-card--aims" aria-labelledby="module-aims-heading">
+        <h3 id="module-aims-heading" class="mk-module-card-heading">Aims</h3>
+        <p class="mk-module-card-intro">"In this module we shall:"</p>
+        <ul class="mk-module-card-list">
+          <li>"Learn about the key paradigms and algorithms in machine learning."</li>
+          <li>"Get an understanding of data analytics based on machine learning and using modern programming tools, such as Python or R."</li>
+          <li>"Experience how machine learning and data analytics can be used in real-world applications."</li>
+          <li>"Acquire the ability to gather and synthesise information from multiple sources to aid in the systematic analysis of complex problems using machine learning tools and algorithms."</li>
+        </ul>
+        <p class="mk-module-card-citation">(University of Essex Online, n.d.)</p>
+      </section>
+
+      <section class="mk-module-card mk-module-card--los" aria-labelledby="module-los-heading">
+        <h3 id="module-los-heading" class="mk-module-card-heading">Learning outcomes</h3>
+        <p class="mk-module-card-intro">"On completion of this module, students will be able to:"</p>
+        <table class="mk-lo-legend mk-lo-legend--verbatim" aria-label="Learning Outcomes extract from the module content">
+          <tbody>
+            <tr>
+              <th scope="row">LO1</th>
+              <td>"Articulate the legal, social, ethical, and professional issues faced by machine learning professionals."</td>
+            </tr>
+            <tr>
+              <th scope="row">LO2</th>
+              <td>"Understand the applicability and challenges associated with different datasets for the use of machine learning algorithms."</td>
+            </tr>
+            <tr>
+              <th scope="row">LO3</th>
+              <td>"Apply and critically appraise machine learning techniques to real-world problems, particularly where technical risk and uncertainty is involved."</td>
+            </tr>
+            <tr>
+              <th scope="row">LO4</th>
+              <td>"Systematically develop and implement the skills required to be effective member of a development team in a virtual professional environment, adopting real-life perspectives on team roles and organisation."</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mk-module-card-citation">(University of Essex Online, n.d.)</p>
+      </section>
+
+    </div>
+    <p class="mk-lo-legend-link"><a href="{{ '/learning-outcomes-and-evidence/' | relative_url }}">See the full Learning Outcomes and Evidence mapping</a>: every piece of work and evidence is linked back to LO1-LO4.</p>
+
+    <p class="mk-section-heading" id="activities">Module activities</p>
+
+    {% for card in site.data.activities.cards %}
+      {% include unit-card.html card=card %}
+    {% endfor %}
+
+  </div>
+
+</div>

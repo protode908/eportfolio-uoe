@@ -1,0 +1,56 @@
+=== Step 2 Cleaning Final Log ===
+
+Final row count:48847
+Final columns: ['id', 'name', 'host_id', 'host_name', 'neighbourhood_group', 'neighbourhood', 'latitude', 'longitude', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'last_review', 'reviews_per_month', 'calculated_host_listings_count', 'availability_365', 'log_price', 'room_type_code', 'neighbourhood_group_code']
+
+Nan per modelling column:
+log_price: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+room_type_code: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+neighbourhood_group_code: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+latitude: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+longitude: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+minimum_nights: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+number_of_reviews: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+reviews_per_month: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+availability_365: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0
+calculated_host_listings_count: 0
+
+room_type_map:{'Entire home/apt': 1, 'Private room': 2, 'Shared room': 3}
+neighbourhood_group_map:{'Manhattan': 1, 'Brooklyn': 2, 'Queens': 3, 'Bronx': 4, 'Staten Island': 5}
+q99 threshold minimum_nights:45.0

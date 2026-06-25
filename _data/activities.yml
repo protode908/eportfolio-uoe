@@ -1,0 +1,355 @@
+cards:
+- id: cd1
+  unit: 1-3
+  title: 'Collaborative Discussion 1: The 4th Industrial Revolution'
+  activity: '"Discuss the impact of the 4th Industrial Revolution on a chosen industry: post an initial perspective grounded in current literature, respond substantively to at least two peers across Units 2-3, and close with a synthesis summary post by the end of Unit 3." (University of Essex Online, n.d.)'
+  description: ''
+  body: 'Initial post, two peer responses, and summary post on Industry 4.0 / 5.0 in the automotive sector. I underweighted ethics in the opening and realised with the pass of the discussion and interaction with peers that ethics is central into this.'
+  feature: false
+  deep_page: ''
+  links:
+  - label: INITIAL POST
+    url: /assets/evidence/cd1/CD1_InitialPost_Mella2026.pdf
+  - label: PEER RESPONSES
+    url: /assets/evidence/cd1/CD1_PeerResponses_Mella2026.pdf
+  - label: SUMMARY POST
+    url: /assets/evidence/cd1/CD1_SummaryPost_Mella2026.pdf
+  status: complete
+  key_takeaway: 'I started thinking efficiency and ended at implementation. Industry 5.0 sounds human-centred and resilient on paper, but the hard part is actually implementing it. Ethics needed to be in the opening from the start.'
+  collapse_body: true
+  collapse_reflection: true
+  artefact: 'Three-part forum thread: initial post, peer responses (Peer A, Peer B), summary post. Evidence: ECD1.1-ECD1.5.'
+  body_label: Show details and reflection
+  key_takeaway_label: Reflection and key takeaway
+- id: unit2-eda-tutorial
+  unit: '2'
+  title: 'Seminar Unit 2: EDA Tutorial'
+  activity: '"Perform exploratory data analysis on the UCI Auto-mpg dataset: identify variable types, handle missing values, compute descriptive statistics, examine correlations and produce visualisations supporting an initial regression hypothesis." (University of Essex Online, n.d.)'
+  description: EDA on UCI Auto-mpg.
+  figure: /assets/images/unit-2/heatmap_correlation.png
+  figure_alt: Pearson correlation heatmap of the Auto-mpg numeric features
+  figure_caption: Pearson correlation heatmap of the Auto-mpg numeric features. E2.7
+  body: ''
+  micro_what: 'Ran EDA on Auto-mpg with the five-step flow: load and shape, missing values, descriptive stats, correlation matrix, distributions and pairwise plots.'
+  micro_what_lo:
+  - LO2
+  micro_so_what: 'Weight, displacement and horsepower were the main variables behind fuel economy. The five-step flow gave me a starting scaffold for EDA, which I kept for the group activity too. The real lesson was deeper than the sequence: when you look at correlations, check distributions too - averages and pairwise scores can mislead. While working in parallel I learned to pay attention to subgroup analysis too, this proved useful in the Individual Project activity.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'Start with a structured opening look on any new tabular dataset, with distributions and subgroups checked before drawing from correlations. Applied in the Team Project: 02_data_exploration.ipynb runs a similar opening sweep on AB_NYC_2019.'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-2/scatter_mpg_vs_weight.png
+    label: MPG VS WEIGHT
+  - url: /assets/images/unit-2/scatter_mpg_vs_horsepower.png
+    label: MPG VS HORSEPOWER
+  status: complete
+  key_takeaway: 'Do not jump from a heatmap to a conclusion. Correlation matters, but only after I have looked at distributions and variable behaviour. The same structured opening look became my default for the Team Project too.'
+  collapse_reflection: true
+  artefact: 'Pearson correlation heatmap and scatter plots (MPG vs weight, MPG vs horsepower) on UCI Auto-mpg. Evidence: E2.7-E2.9.'
+- id: unit3-corr-regression
+  unit: '3'
+  title: 'e-Portfolio Activity Unit 3: Correlation and Regression'
+  activity: '"Work through the four module notebooks (covariance and Pearson, linear regression, multiple linear regression, polynomial regression). For each, run the tutorial default and then change one parameter to observe how the technique reacts to noise, extrapolation, scale or capacity." (University of Essex Online, n.d.)'
+  description: 'Four regression notebooks: Pearson, linear, multi-linear and polynomial.'
+  figure: /assets/images/unit-3/ex4_polynomial_three_degrees.png
+  figure_alt: Polynomial regression fitted at three degrees (1, 3 and 10)
+  figure_caption: Polynomial regression at three degrees (deg 1, 3, 10). E3.4
+  body: ''
+  micro_what: 'Ran each notebook at default, then varied one parameter to see how results varied and the implications of that: more noise, out-of-range prediction, scaling, and polynomial degrees.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'Higher-degree polynomials fit the visible points way better but do not generalise. Degree 1 underfit, degree 3 captured the pattern, degree 10 overfit. R² tells me how well the model matches the points it has already seen, but a high R² is not enough on its own. Further testing is needed to check how the model behaves on unseen data, for example new cases the model has not been trained on.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'Pair every R² with a generalisation check (held-out or cross-validation). Applied in the Team Project: 04_regression.ipynb runs the same comparison across linear, multi-linear and polynomial models on the project dataset.'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - label: EX1 CORRELATION
+    url: /assets/images/unit-3/ex1_correlation_three_regimes.png
+  - label: EX2 LINEAR
+    url: /assets/images/unit-3/ex2_linear_regression.png
+  - label: EX3 MULTIPLE
+    url: /assets/images/unit-3/ex3_multiple_regression.png
+  status: complete
+  key_takeaway: 'A regression line still spits out a number even when the prediction is not reliable. Higher capacity fits the visible points but not the unseen ones. I had first met the generalisation-check idea on paper in the previous module, Understanding AI: in the DeutschFin Probability of Default proof of concept I had paired 10-fold cross-validation with a 70/30 hold-out test on the UCI German Credit dataset in WEKA. Here in Python I started doing the same check myself, and it came back again as a recurring theme on the Individual Project.'
+  collapse_body: true
+  collapse_reflection: true
+  artefact: 'Four notebooks (correlation, linear, multiple linear, polynomial), each with default and variable-change run. Evidence: E3.1-E3.4.'
+  body_label: Show results
+- id: unit6-team-project
+  unit: 1-6
+  title: 'Graded assignment - Team Project: Project Report'
+  activity: '"Group D, Track 1: develop a classical ML solution (regression for price prediction, clustering for customer segmentation) on the Airbnb NYC 2019 dataset to address an agreed business question. Deliver a 1,000-word executive analytical report and a peer-review form, as a virtual development team, by 23:55 UK on 8 June 2026." (University of Essex Online, n.d.)'
+  description: 'Group D, AB_NYC_2019 Airbnb dataset, Track 1 classical ML: regression for price prediction and clustering for listing segmentation. A 1,000-word executive analytical report mapped to CRISP-DM, with scripts, meeting records, decision log and design document behind it, from week 1 team formation to week 6 submission.'
+  body: 'The Track 1 work was an executive report on the Airbnb NYC 2019 dataset covering EDA, cleaning, regression for price prediction and clustering for listing segmentation, all mapped to CRISP-DM (the same framework I had used on paper in the previous module, Understanding AI, for the DeutschFin Probability of Default proof of concept; here it had to actually drive a five-stage Python pipeline I designed and ran, rather than sit as a methodology slide). I held the coordinator role and as individual contributor owned the ML and report deliverable workstreams, with support to the EDA and cleaning workstream. Three of six members were actively engaged across the project. The project page keeps the main evidence: kickoff deck, working agreement, decision log, design documents, scripts, notebooks and the final report PDF.'
+  micro_what: 'Built a five-stage Python pipeline on the Airbnb NYC 2019 dataset: cleaning and normalisation, dataset profiling, regression for price prediction, clustering for listing segmentation, and the results layer feeding the report. Held the coordinator role and ran the meeting and asset cadence in parallel. Wrote down every modelling decision in a decision log, tagged by evidence strength.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  - LO4
+  micro_so_what: 'Three regression models were tested in a nested progression: a room-type baseline (Model 1), multiple linear with selected listing features (Model 2), and polynomial degree 2 (Model 3). Model 3 performed best, explaining around 54% of the variation in log_price. K-means segmentation at K=3 ended up tracking room-type closely because room-type was both a clustering input and the strongest observed price signal. So the price work reads as a listed-price guidance, with a complete pricing engine still out of scope, and the segmentation supports broad peer comparison rather than a customer typology. The report''s further-work section names two paths to close that gap: adding missing price-driver features for a fuller pricing engine, or complementing the current models with a Random Forest price-band classification for richer guidance. Both were excluded from this submission for time and length. On the group side: three of six members were actively engaged. Accommodation effort did not translate into contribution. The lesson stands out: inclusivity has to be balanced with protecting the timeline, quality and learning of the active members.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  - LO4
+  micro_now_what: 'For the Individual Presentation: take the tutor feedback head-on. Go deeper on why specific modelling choices are optimal, compare alternatives explicitly, document the design-choice rationale, and tie every recommendation back to a specific result. Practical habits forward: scope-and-limits up front, decision log tagged by evidence strength, evidence-supports-claim check before I present, dual-metric reporting (R² with scope statement for regression; AUC plus confusion matrix for classification) so the result and its limits travel together. For future group work: set role clarity and escalation routes from week 1, treat prolonged silence as project risk way earlier, use the formal escalation route rather than absorbing the situation inside the group.'
+  micro_now_what_lo:
+  - LO3
+  - LO4
+  feedback: 'Group baseline mark: 69 / 100. Individual mark: 100 / 100 (Distinction). Tutor feedback received 16 June 2026.<br><br>Strengths identified: clear understanding of the business problem and dataset; CRISP-DM framing; focused business question; sound use of log-price transformation and feature awareness; correct distinction between association and causality.<br><br>Areas for improvement: the clustering outcome reproduced room-type segmentation (room type was both a clustering input and the dominant price signal, so the segmentation added limited methodological distinctiveness over the input feature); model evaluation was superficial beyond R² and RMSE (no overfitting, generalisability or diagnostic checks); business recommendations extended beyond the evidence presented (Porter / Blue Ocean introduced without direct linkage to model outputs); minor Harvard-referencing inconsistencies.<br><br>Applied to the Individual Presentation: deeper evaluation (overfitting, train-test
+    gap, generalisability, calibration), tighter claim-to-evidence linkage, more developed interpretation of figures, and Harvard-format pass before submission.'
+  feature: true
+  feature_pill: TEAM PROJECT
+  deep_page: /projects/team-project/
+  links:
+  - label: FINAL REPORT (PDF)
+    url: /code/team-project/deliverables/groupD_track1_final_report_v1.0.pdf
+  status: complete
+  key_takeaway: 'With the dataset''s limits, the price-prediction work reads as listed-price guidance, and the K-means segments work as broad peer-comparison groups around room-type. The report''s further-work section names two paths to close that gap (more price-driver features or a complementary Random Forest price-band classifier). The tutor feedback flagged depth in modelling choices, alternative comparisons and evidence-anchored conclusions as the areas to push further, and I am applying those directly on the Individual Project. The group lesson stands out: inclusivity has to be balanced with protecting the active members. When accommodation does not yield follow-up, escalate early through formal routes.'
+  collapse_body: true
+  collapse_reflection: true
+- id: unit6-kmeans-tutorial
+  unit: '6'
+  title: 'Seminar Unit 6: K-Means Clustering Tutorial'
+  activity: '"Apply k-means clustering on three reference datasets: Iris and Wine compared against their species / cultivar labels (purity, ARI) and a WeatherAUS sample unsupervised (elbow + PCA). Discuss the choice of k and the interpretation of cluster labels." (University of Essex Online, n.d.)'
+  description: K-means clustering tutorial on Iris, Wine and WeatherAUS.
+  figure: /assets/images/unit-6/kmeans_pca_three_datasets.png
+  figure_alt: PCA scatter of k-means clusters across Iris, Wine and WeatherAUS
+  figure_caption: 'PCA scatter of k-means clusters across the Iris, Wine and WeatherAUS datasets. E6.K1'
+  body: ''
+  micro_what: 'Ran k-means on the three datasets, scanned across a range of K values with the elbow method on WeatherAUS, and visualised cluster boundaries in PCA space.'
+  micro_what_lo:
+  - LO2
+  - LO4
+  micro_so_what: 'The elbow is informative but not decisive. Silhouette validates the choice empirically. So one particularity I noticed: cluster boundaries that look clean in PCA can hide overlap in feature space.'
+  micro_so_what_lo:
+  - LO1
+  - LO2
+  - LO4
+  micro_now_what: 'Pair elbow with silhouette and always inspect the cluster crosstab against a meaningful categorical variable. Applied in the Team Project: 05_clustering.ipynb runs the same approach and the cluster crosstab shows segments mapping one-to-one to room type.'
+  micro_now_what_lo:
+  - LO4
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-6/weatherAUS_elbow.png
+    label: WEATHERAUS ELBOW
+  - url: /assets/images/unit-6/weatherAUS_k_grid.png
+    label: WEATHERAUS K GRID
+  status: complete
+  key_takeaway: 'Elbow tells me where to look. Silhouette tells me whether the cluster I selected is real. Both feed the Team Project clustering directly.'
+  collapse_reflection: true
+  artefact: 'K-means on Iris and Wine (purity / ARI), plus WeatherAUS (elbow + PCA). Evidence: E6.K1-E6.K3.'
+- id: midmodule-reflection
+  unit: ''
+  title: Mid-module reflection
+  activity: ''
+  description: 'Mid-module checkpoint reflecting on the first half (Units 1-6) before moving into deep learning.'
+  body: ''
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+  micro_what: ''
+  micro_so_what: ''
+  micro_now_what: ''
+  key_takeaway: 'When I was mid-module through, the learned content clicked and moved information into knowledge a bit more. All started to get through together, clicked. My experience in professional life, the learning I had and the more academic side which I''m not used to came together. Understanding AI as the conceptual basis (specifically the DeutschFin Probability of Default proof of concept in WEKA, where I had compared Logistic Regression, J48 and RandomForest on the UCI German Credit dataset under 10-fold cross-validation and a 70/30 hold-out test, and had argued on paper for SHAP reason codes on the broader credit-scoring case), Launch into Computing as the engineering toolkit, Numerical Analysis as the mathematical and statistics grounding, and the Machine Learning module itself as the hands-on deep learning teaching. In concrete terms: my architect and engineering experience came through when designing the notebooks and scripts for both the Team Project pipeline and the Individual Presentation; my project-management experience shaped the coordinator role and meeting cadence on the group activity; the Numerical Analysis grounding taught me how to communicate through plots and visualisations, used heavily in both the Team Project EDA work and the Individual Project subgroup-analysis figures; the Understanding AI conceptual basis sat right under the classical-versus-deep-learning comparison on the Individual Presentation - the interpretable-versus-higher-capacity trade-off I had first seen between Logistic and RandomForest in WEKA came back as the HOG + SVM versus ResNet50 head-to-head on chest X-rays, and the SHAP reason codes I had argued for on paper turned into a SHAP-style decomposition I actually computed in Unit 8 and then into occlusion-sensitivity heatmaps on the Individual Project; the Machine Learning module''s hands-on teaching of CNNs and transfer learning was the direct foundation for the ResNet50 transfer-learning work on the Individual Project; and the critical thinking I sharpened with the tutor feedback on the Team Project became the framing for how I justified every modelling choice on the Individual Presentation. The deep-learning weeks were where everything connected. So the module turned curiosity into momentum and engagement with what I could research in the Individual Presentation: specifically X-rays, pneumonia diagnosis, machine learning applied to medical images, and deep learning for image classification.'
+- id: unit8-seminar
+  unit: '8'
+  title: 'Seminar Unit 8: Comparing Machine Learning, Deep Learning and Ethical Impact in Practice'
+  activity: '"Three-part seminar preparation: (1) read Yu et al. (2024) on CNN vs conventional ML for supply chain management distribution cost and reflect critically; (2) reflect on explainability tooling (SHAP, LIME); (3) build a recommender system on MovieLens 100K and explain one prediction." (University of Essex Online, n.d.)'
+  description: 'ML vs DL comparison on a Matrix-Factorisation recommender (MovieLens 100K), plus a SHAP-style explainability decomposition.'
+  figure: /assets/images/unit-8/recommender_rmse_comparison.png
+  figure_alt: Recommender RMSE comparison across three models on MovieLens 100K
+  figure_caption: 'RMSE comparison across three collaborative filtering models on the MovieLens 100K dataset. E8.1'
+  body: ''
+  micro_what: 'Compared three recommender models, plotted MF training and validation curves (overfitting visible), and decomposed one MF prediction into per-feature contributions.'
+  micro_what_lo:
+  - LO3
+  - LO4
+  micro_so_what: 'ML and DL come with different trade-offs. DL has more capacity to model complex patterns when the data supports it, but it is harder to interpret; ML is simpler and more transparent. When the dataset is small or the features are well-understood, ML is often the right choice. Per-feature attribution like SHAP feels useful to look inside the model, but the linearity assumption underneath hides interactions between features. In the previous module, Understanding AI, I had argued for SHAP reason codes on an XGBoost credit-scoring model in the DeutschFin AI adoption essay - that was purely conceptual, a paper-level argument for keeping individual credit decisions auditable. Here I actually computed a SHAP-style per-feature decomposition by hand on a single Matrix-Factorisation prediction, and the linearity caveat became visible in the exercise itself rather than just stated in a paragraph. When you track validation alongside training, that is when you can clearly see overfitting, and that is why it is important to do it.'
+  micro_so_what_lo:
+  - LO3
+  - LO4
+  micro_now_what: 'Track validation curves during training, and name the assumptions when reporting attribution. Applied directly on the Individual Project: the ML vs DL framing shaped the head-to-head comparison between HOG + SVM (classical) and ResNet50 (deep learning) on the same paediatric chest X-ray data, where the trade-off was concrete: the SVM was more transparent but had a larger gap between cross-validation and held-out test, while the CNN held up better. The same limits-of-attribution caveat from this unit showed up again in the occlusion-sensitivity discussion in the Individual Project. This was also the entry point into the deep-learning weeks: Unit 9 followed with CNN training and Unit 10 with the CNN Explainer walkthrough.'
+  micro_now_what_lo:
+  - LO3
+  - LO4
+  feature: false
+  deep_page: ''
+  links:
+  - label: MF TRAINING CURVE (E8.2)
+    url: /assets/images/unit-8/recommender_mf_training.png
+  - label: SHAP-STYLE DECOMPOSITION (E8.3)
+    url: /assets/images/unit-8/recommender_explainability.png
+  status: complete
+  key_takeaway: 'A bigger or more capable model does not automatically mean I understand what it does. Attribution methods help to look inside, but they come with assumptions like linearity that should be named openly, not left hidden. The arc was clear by this unit: in the Understanding AI DeutschFin essay I had proposed SHAP reason codes on a credit-scoring model purely on paper; here in Unit 8 I computed a SHAP-style decomposition by hand on one Matrix-Factorisation prediction; on the Individual Project I applied occlusion-sensitivity on ResNet50 to surface what the CNN actually attends to in the lung field. Three steps from conceptual to field work, and the same caveat - attribution methods hide interactions - travels all the way through.'
+  collapse_reflection: true
+  artefact: 'Three-model recommender stack on MovieLens 100K (baseline -> bias -> matrix factorisation), plus a SHAP-style decomposition. Evidence: E8.1-E8.3.'
+- id: cd2
+  unit: 8-10
+  title: 'Collaborative Discussion 2: Legal and Ethical Views on ANN Applications'
+  activity: '"Discuss the legal and ethical considerations of ANN applications: post an initial perspective by mid-Unit 8, respond substantively to at least two peers across Units 8-9, and close with a synthesis summary post by the end of Unit 10." (University of Essex Online, n.d.)'
+  description: 'CD2 on legal and ethical views of an AI / ML application (in progress until Unit 10).'
+  body: ''
+  micro_what: 'Initial post drafted (industrial-IoT predictive maintenance through a dual-use lens, and per-distribution weaknesses from Unit 10). Peer responses and summary post follow during Units 9-10.'
+  micro_what_lo:
+  - LO1
+  micro_so_what: 'The CD1 implementation-gap framing translates to CD2 as the regulation gap. Ethics is not generic. It has to name the specific risks of the chosen application. Building this card incrementally avoids the late-in-the-week scramble I had with CD1 responses.'
+  micro_so_what_lo:
+  - LO1
+  micro_now_what: 'Bring ethics into the opening framing from the start. Applied in the reflection essay §3.3: ethics gets specific named risks for the application.'
+  micro_now_what_lo:
+  - LO1
+  feature: false
+  deep_page: ''
+  links: []
+  status: placeholder
+  key_takeaway: 'CD2 is in progress until Unit 10. The CD1 lesson stands: ethics belongs in the opening. I am applying it here from the first post.'
+- id: unit9-cnn-model
+  unit: '9'
+  title: 'e-Portfolio Activity Unit 9: CNN Model Activity'
+  activity: '"Train the tutorial CIFAR-10 CNN, run the prediction-index exercise on x_test[1..15], and discuss the model''s behaviour. Read Wall (2019) on facial-recognition bias and produce a paired ethics commentary." (University of Essex Online, n.d.)'
+  description: 'CIFAR-10 CNN classification activity (test accuracy 77.82%), with a per-image confidence inspection and a face-recognition ethics observation.'
+  figure: /assets/images/unit-9/prediction_grid_1_to_15.png
+  figure_alt: 3x5 grid of CIFAR-10 test predictions for indices 1-15
+  figure_caption: Prediction grid for x_test[1..15] on the tutorial CIFAR-10 CNN. E9.4
+  body: ''
+  micro_what: 'Trained a CNN on CIFAR-10 to 77.82% test accuracy, walked through a 15-image prediction grid, and inspected per-image confidence variance instead of stopping at the headline number.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'The headline accuracy hides the per-image confidence variance. So 15 out of 15 correct on the sample, but the softmax outputs vary way more between confident and borderline cases than I expected. The face-classification accuracy disparity by demographic group makes the same point in an ethics context.'
+  micro_so_what_lo:
+  - LO1
+  - LO2
+  micro_now_what: 'Prediction confidence in headlines should be evaluated alongside aggregate accuracy. Applied in the Individual Presentation: the same confidence-variance observation showed up as very high saturated outputs on the ResNet50 pneumonia model. That added calibration / temperature-scaling to the list of things I named for follow-up.'
+  micro_now_what_lo:
+  - LO1
+  - LO2
+  feature: false
+  deep_page: ''
+  links:
+  - label: CNN ARCHITECTURE (E9.1)
+    url: /assets/images/unit-9/cnn_architecture_cifar10.png
+  - label: TRAINING CURVE (E9.3)
+    url: /assets/images/unit-9/training_curve.png
+  - label: SAMPLE PREDICTION (E9.5)
+    url: /assets/images/unit-9/sample_correct.png
+  - label: ETHICS DISPARITY (E9.2)
+    url: /assets/images/unit-9/cnn_recognition_ethics_disparity.png
+  status: complete
+  key_takeaway: 'Headline accuracy hides per-prediction behaviour. Confidence variance and subgroup disparity belong in the evidence. I had seen this in the Understanding AI DeutschFin proof of concept: ZeroR scored 70% accuracy by predicting "good" for everyone, and bad-risk recall was 0.0.'
+  collapse_reflection: true
+  artefact: 'Tutorial CIFAR-10 CNN at 77.82% test accuracy, plus 15/15 prediction-index exercise and ethics disparity figure. Evidence: E9.1-E9.5.'
+- id: unit10-cnn-tutorial
+  unit: '10'
+  title: 'Seminar Unit 10: CNN Tutorial'
+  activity: '"Use the CNN Explainer (Wang et al., 2020) to step through the Tiny VGG model: walk a custom input through the convolution, ReLU and pooling layers, observe the layer-wise activations, and discuss what the model does and where it fails." (University of Essex Online, n.d.)'
+  description: 'CNN Explainer walkthrough with four custom inputs that surfaced three distinct weaknesses in the CNN.'
+  figure: /assets/images/unit-10/inputs_panel.jpg
+  figure_alt: 2x2 panel of the four CNN Explainer inputs
+  figure_caption: Four-input experiment panel through the CNN Explainer Tiny VGG model. E10.0
+  body: ''
+  micro_what: 'Uploaded four custom images to the CNN Explainer pretrained on ImageNet: a US yellow school bus (in-distribution baseline), an Argentina orange school bus (dataset bias), a NYC yellow taxi (colour beats shape), and a selfie (out-of-distribution case).'
+  micro_what_lo:
+  - LO1
+  - LO2
+  micro_so_what: 'One walkthrough surfaced three independent weaknesses: dataset bias, spurious feature reliance, and OOD overconfidence. The dataset-bias weakness has parallels with what I had flagged in the Understanding AI DeutschFin proof of concept. So basically softmax does not know what it does not know.'
+  micro_so_what_lo:
+  - LO1
+  - LO2
+  micro_now_what: 'Always test the model on inputs it was not trained on. Applied in the Individual Presentation: these three weaknesses directly informed the IP subgroup analysis design (image size, brightness) and the shortcut-feature warning in the occlusion-sensitivity discussion.'
+  micro_now_what_lo:
+  - LO1
+  - LO2
+  feature: false
+  deep_page: ''
+  links:
+  - label: 'CASE 1: US BUS (E10.1)'
+    url: /assets/images/unit-10/01_bus_us_results.jpg
+  - label: 'CASE 2: ARGENTINIAN BUS (E10.2)'
+    url: /assets/images/unit-10/02_bus_ar_results.jpg
+  - label: 'CASE 3: NYC TAXI (E10.3)'
+    url: /assets/images/unit-10/03_taxi_results.jpg
+  - label: 'CASE 4: SELFIE (E10.4)'
+    url: /assets/images/unit-10/04_selfie_results.jpg
+  status: complete
+  collapse_body: true
+  collapse_reflection: true
+  key_takeaway: 'Softmax confidence does not know what it does not know. The three weaknesses seen here became the design template for the Individual Presentation subgroup analysis.'
+  artefact: 'CNN Explainer Tiny VGG four-input experiment and per-case results panels. Evidence: E10.0-E10.4.'
+  body_label: Show results table
+- id: unit11-cnn-object-recognition
+  unit: '11'
+  title: 'Graded assignment - Individual Project: Presentation'
+  activity: '"Deliver a 20-minute individual presentation comparing classical machine learning and deep learning on a chosen problem, with critical evaluation, explainability and an ethics section. Submission 5 July 2026." (University of Essex Online, n.d.)'
+  description: 'My Individual Presentation: paediatric chest X-ray classification compared across classical ML (HOG features + SVM) and deep learning (ResNet50 transfer learning).'
+  feedback: Placeholder - tutor grade and feedback to be added once received.
+  feature: true
+  feature_pill: INDIVIDUAL
+  deep_page: /projects/individual-project/
+  links:
+  - label: SUBMISSION NOTEBOOK
+    url: /code/individual-presentation/notebook/MLworkflow_final_v1.0_submission.ipynb
+  - label: PRESENTATION SLIDES (PDF)
+    url: /code/individual-presentation/deliverables/presentation_final_v1.0.pdf
+  status: complete
+  body: 'On this exercise I compared classical machine learning (HOG + SVM) with deep learning (ResNet50 transfer learning) for paediatric chest X-ray classification on a public dataset. The CNN clearly outperformed on the held-out test set. The stand-out result was the generalisation gap: the SVM''s cross-validation score did not transfer to the held-out test, while the CNN held up way better between CV and test. The cost-asymmetry framing in this work has parallels with what I had done in the previous module, Understanding AI: in the DeutschFin proof of concept the Hofmann cost matrix made false negatives (approving a bad applicant) five times more costly than false positives (rejecting a good applicant); here the same shape applies but is even more sensitive, because a missed pneumonia carries clinical consequences a false alarm does not. The recommendation is ResNet50 as a solid support for the clinician specialist, with conditions that need to be in place for deployment: clinician-set threshold on separate validation data with clinical cost input, ongoing subgroup analysis, drift monitoring, and out-of-distribution control. Lessons spanned scoping, reproducibility, calibration and ethics. Details and full reflection on the deep page.'
+  key_takeaway: 'This was the activity where I learned the most from my own mistakes. I over-scoped the work, and the cost showed up in drifting numbers and a Keras `trainable` flag I had to learn to use properly as a setting that requires explicit verification. The lessons spanned: Keras fine-tuning has to be verified end-to-end (a nested-model `trainable` flag does not unfreeze inner layers by itself); CNN reproducibility is harder than classical ML because GPU non-determinism, dropout randomness and batch shuffling drift the results between runs; saved model work products make results traceable; XAI heatmaps are directional hints only, with causal evidence sitting outside what they can show; clinical context is paramount and most design choices were only possible after building image-processing and clinical understanding; and averages hide weaknesses (subgroup analysis flipped the trustworthiness picture when image size or brightness changed). Next steps if I revisit the project: rerun the fine-tuning correctly with the Keras flag fixed; validate first on another paediatric hospital dataset and adults if possible; compare DenseNet121 against ResNet50; add a calibration step (temperature scaling) so the saturated outputs become usable as probabilities for downstream decisions; tune per-model decision thresholds away from the 0.5 default; and evaluate borderline cases before any production deployment.'
+  collapse_reflection: true
+- id: unit12-future-of-ml
+  unit: '12'
+  title: 'Seminar Unit 12: The Future of Machine Learning'
+  activity: '"Unit 12 seminar on the future of machine learning: discuss how AI-driven automation is reshaping industries, examining Self-Supervised Learning, Neural Architecture Search and Edge AI, and the cross-cutting questions of ethics, scalability and sustainability." (University of Essex Online, n.d.)'
+  description: 'Reflection on the future of ML based on the Unit 12 formative reading (Self-Supervised Learning, Neural Architecture Search, Edge AI, and the cross-cutting questions of ethics, scalability and sustainability). Done from the formative material because I missed the live seminar.'
+  body: ''
+  micro_what: 'Worked through the Unit 12 formative reading. Reflected on how SSL, NAS and Edge AI tie into ethics, scalability and sustainability, anchored in my own Individual Presentation experience.'
+  micro_what_lo:
+  - LO1
+  - LO3
+  micro_so_what: 'The hardware point stands out: Intel CPU runs on the IP took close to a day. Apple silicon GPU support on my M4 Pro brought it down roughly 5x. Deep learning needs specialised hardware with specialised libraries for parallel computing, and that brings real hardware dependency. So Edge AI and sustainability showed up directly in my own compute envelope, and the GPU-versus-CPU future conversation is already here. SSL and NAS suggest the same trade-off appearing in different shapes.'
+  micro_so_what_lo:
+  - LO1
+  - LO3
+  micro_now_what: 'Keep watching the SSL / NAS / Edge AI thread as it matures into industrial-grade tooling. Sustainability is increasingly a deployment concern. Applied in the reflection essay §3.3 (deployment-as-process) and §4 (deployment-cost as a follow-up consideration).'
+  micro_now_what_lo:
+  - LO1
+  - LO3
+  - LO4
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+  key_takeaway: 'Future-of-ML lives in today. It shows up in my own GPU vs CPU compute trade-offs and in the deployment approach I built for the Individual Presentation.'
+  collapse_body: true
+  collapse_reflection: true
+  artefact: 'Pre-seminar reading and analysis on SSL, NAS, Edge AI and the ethics/scalability/sustainability questions.'
+- id: professional-development
+  unit: '12'
+  title: Professional Development
+  activity: '"Produce a Professional Skills Matrix and an Action Plan covering the twelve UoEO skill areas plus the module-specific machine-learning skills, packaged together as a single A4 PDF and embedded on the Professional Development deep page." (University of Essex Online, n.d.)'
+  description: 'Professional Skills Matrix and Personal Development Plan covering pre-module baseline and post-module recalibration.'
+  body: ''
+  micro_what: ''
+  micro_what_lo: []
+  micro_so_what: ''
+  micro_so_what_lo: []
+  micro_now_what: ''
+  micro_now_what_lo: []
+  feature: false
+  deep_page: /skills-matrix/
+  links: []
+  status: complete
+  key_takeaway: ''
+  collapse_body: true
