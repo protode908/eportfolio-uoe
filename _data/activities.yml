@@ -200,9 +200,9 @@ cards:
   unit: 8-10
   title: 'Collaborative Discussion 2: Legal and Ethical Views on ANN Applications'
   activity: '"Discuss the legal and ethical considerations of ANN applications: post an initial perspective by mid-Unit 8, respond substantively to at least two peers across Units 8-9, and close with a synthesis summary post by the end of Unit 10." (University of Essex Online, n.d.)'
-  description: 'CD2 on legal and ethical views of an AI / ML application (in progress until Unit 10).'
+  description: 'CD2 on legal and ethical views of an AI / ML application.'
   body: ''
-  micro_what: 'Initial post drafted (industrial-IoT predictive maintenance through a dual-use lens, and per-distribution weaknesses from Unit 10). Peer responses and summary post follow during Units 9-10.'
+  micro_what: 'Initial post on LLM evolution and massification, benefits and cognitive-outsourcing concerns, analysis of Hutson (2021) article on robo-writers. Two peer responses focusing on AI disclosure transparency, intellectual property and copyright. Summary post bringing all together with a summary on governance gap and socio-technical focus in line with Industry 5.0.'
   micro_what_lo:
   - LO1
   micro_so_what: 'The CD1 implementation-gap framing translates to CD2 as the regulation gap. Ethics is not generic. It has to name the specific risks of the chosen application. Building this card incrementally avoids the late-in-the-week scramble I had with CD1 responses.'
@@ -213,9 +213,16 @@ cards:
   - LO1
   feature: false
   deep_page: ''
-  links: []
-  status: placeholder
-  key_takeaway: 'CD2 is in progress until Unit 10. The CD1 lesson stands: ethics belongs in the opening. I am applying it here from the first post.'
+  links:
+  - label: INITIAL POST
+    url: /assets/evidence/cd2/CD2_InitialPost_Mella2026.pdf
+  - label: PEER RESPONSES
+    url: /assets/evidence/cd2/CD2_PeerResponses_Mella2026.pdf
+  - label: SUMMARY POST
+    url: /assets/evidence/cd2/CD2_SummaryPost_Mella2026.pdf
+  status: complete
+  key_takeaway: 'LLMs bring benefits that can help quality, time and cost wise in the writing domain, however ethics questions and risks come with it as well. The benefit of the individual seems to have an impact on the collective. Governance gap on LLM adoption as the parallel to CD1''s implementation gap on Industry 4.0/5.0.'
+  artefact: 'Three-part forum thread: initial post, peer responses (Peer A on AI disclosure, Peer B on copyright), summary post. Evidence: ECD2.1-ECD2.4.'
 - id: unit9-cnn-model
   unit: '9'
   title: 'e-Portfolio Activity Unit 9: CNN Model Activity'

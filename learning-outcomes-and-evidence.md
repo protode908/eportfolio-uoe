@@ -107,6 +107,10 @@ Every catalogued evidence item, mapped to the LO(s) it supports. Each row links 
 | **ECD1.3** CD1 peer response on pharmaceutical Industry 4.0 and Zero Trust | [CD1](/eportfolio-uoe/#activity-cd1) | x |  |  |  |
 | **ECD1.4** CD1 summary post: cross-sector implementation-gap synthesis | [CD1](/eportfolio-uoe/#activity-cd1) | x | x |  |  |
 | **ECD1.5** CD1 peer responses received ([Peer Response 1], [Peer Response 2]) | [CD1](/eportfolio-uoe/#activity-cd1) | x |  |  | x |
+| **ECD2.1** CD2 initial post: LLM evolution, productivity gains and cognitive-outsourcing concerns (Hutson, 2021) | [Initial Post PDF](/eportfolio-uoe/assets/evidence/cd2/CD2_InitialPost_Mella2026.pdf) | x |  | x |  |
+| **ECD2.2** CD2 peer response on AI disclosure, EU AI Act and watermarking | [Peer Responses PDF](/eportfolio-uoe/assets/evidence/cd2/CD2_PeerResponses_Mella2026.pdf) | x |  |  |  |
+| **ECD2.3** CD2 peer response on copyright, originality and AI authorship | [Peer Responses PDF](/eportfolio-uoe/assets/evidence/cd2/CD2_PeerResponses_Mella2026.pdf) | x |  |  |  |
+| **ECD2.4** CD2 summary post: intellectual contribution, governance gap, LLMs as socio-technical systems | [Summary Post PDF](/eportfolio-uoe/assets/evidence/cd2/CD2_SummaryPost_Mella2026.pdf) | x |  | x |  |
 
 ## By Evidence Item {#by-evidence}
 
@@ -224,6 +228,15 @@ A compact lookup for every piece of self-authored evidence on this site, organis
 | [ECD1.4](/eportfolio-uoe/assets/evidence/cd1/CD1_SummaryPost_Mella2026.pdf) | Summary post: cross-sector implementation-gap synthesis | LO1, LO2 |
 | [ECD1.5](/eportfolio-uoe/assets/evidence/cd1/CD1_PeerResponses_Mella2026.pdf) | Peer responses received (peer A 7 May; peer B 11 May) | LO1, LO4 |
 
+### Collaborative Discussion 2 (Units 8 to 10)
+
+| ID | Description | LO |
+|---|---|---|
+| [ECD2.1](/eportfolio-uoe/assets/evidence/cd2/CD2_InitialPost_Mella2026.pdf) | Initial post: LLM evolution, productivity gains and cognitive-outsourcing concerns (Hutson, 2021) | LO1, LO3 |
+| [ECD2.2](/eportfolio-uoe/assets/evidence/cd2/CD2_PeerResponses_Mella2026.pdf) | Peer response on AI disclosure, EU AI Act and watermarking | LO1 |
+| [ECD2.3](/eportfolio-uoe/assets/evidence/cd2/CD2_PeerResponses_Mella2026.pdf) | Peer response on copyright, originality and AI authorship | LO1 |
+| [ECD2.4](/eportfolio-uoe/assets/evidence/cd2/CD2_SummaryPost_Mella2026.pdf) | Summary post: intellectual contribution, governance gap, LLMs as socio-technical systems | LO1, LO3 |
+
 ## Identifier convention
 
-`E2.x` Unit 2; `E3.x` Unit 3, and so on through to `E11.x`. `E6.x` is the Team Project hub; `E6.K*` is the Unit 6 k-means tutorial. `ECD1.x` is Collaborative Discussion 1.
+`E2.x` Unit 2; `E3.x` Unit 3, and so on through to `E11.x`. `E6.x` is the Team Project hub; `E6.K*` is the Unit 6 k-means tutorial. `ECD1.x` is Collaborative Discussion 1; `ECD2.x` is Collaborative Discussion 2.
