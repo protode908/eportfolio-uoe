@@ -67,11 +67,11 @@ Every catalogued evidence item, mapped to the LO(s) it supports. Each row links 
 | **E10.0** Input panel: four custom inputs (experiment design) | [Unit 10](/eportfolio-uoe/#activity-unit10-cnn-tutorial) |  | x |  |  |
 | **E10.1** CNN Explainer pipeline: US yellow school bus (in-distribution baseline) | [Unit 10](/eportfolio-uoe/#activity-unit10-cnn-tutorial) |  | x |  |  |
 | **E10.2** CNN Explainer pipeline: AR orange school bus (dataset bias) | [Unit 10](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | x | x |  |  |
-| **E10.3** CNN Explainer pipeline: NYC yellow taxi (colour beats shape) | [Unit 10](/eportfolio-uoe/#activity-unit10-cnn-tutorial) |  | x |  |  |
+| **E10.3** CNN Explainer pipeline: NYC yellow taxi (colour beats shape) | [Unit 10](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | x | x |  |  |
 | **E10.4** CNN Explainer pipeline: selfie (OOD softmax overconfidence) | [Unit 10](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | x | x |  |  |
 | **E11.1** Individual Presentation slides (PDF, Unit 11 final submission) | [Slides PDF](/eportfolio-uoe/code/individual-presentation/deliverables/presentation_final_v1.0.pdf) | x | x | x |  |
 | **E11.2** Individual Presentation speaker transcript (PDF, Unit 11 final submission) | [Transcript PDF](/eportfolio-uoe/code/individual-presentation/deliverables/transcript_final_v1.0.pdf) | x | x | x |  |
-| **E11.3** Individual Presentation notebook bundle (Unit 11 final submission) | [GitHub bundle](https://github.com/protode908/eportfolio-uoe/tree/main/code/individual-presentation/notebook) |  | x | x |  |
+| **E11.3** Individual Presentation notebook bundle (Unit 11 final submission) | [GitHub bundle](https://github.com/protode908/eportfolio-uoe/tree/main/code/individual-presentation/notebook) | x | x | x |  |
 | **E6.1** Track 1 decision log (D-001 to D-018) | [Team Project](/eportfolio-uoe/projects/team-project/) |  |  | x | x |
 | **E6.2** Track 1 design document | [Team Project](/eportfolio-uoe/projects/team-project/) |  | x |  | x |
 | **E6.3** Handover document for the EDA workstream responsible | [Team Project](/eportfolio-uoe/projects/team-project/) |  |  |  | x |
@@ -172,7 +172,7 @@ A compact lookup for every piece of self-authored evidence on this site, organis
 | [E10.0](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | Input panel: four custom CNN Explainer inputs | LO2 |
 | [E10.1](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | Case 1: US yellow school bus, baseline (0.9730) | LO2 |
 | [E10.2](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | Case 2: AR orange school bus, dataset bias (sport_car 0.5137) | LO1, LO2 |
-| [E10.3](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | Case 3: NYC yellow taxi, colour beats shape (orange 0.4169) | LO2 |
+| [E10.3](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | Case 3: NYC yellow taxi, colour beats shape (orange 0.4169) | LO1, LO2 |
 | [E10.4](/eportfolio-uoe/#activity-unit10-cnn-tutorial) | Case 4: selfie, OOD softmax overconfidence (espresso 0.5686) | LO1, LO2 |
 
 ### Unit 11 - Individual Presentation
@@ -181,7 +181,7 @@ A compact lookup for every piece of self-authored evidence on this site, organis
 |---|---|---|
 | [E11.1](/eportfolio-uoe/code/individual-presentation/deliverables/presentation_final_v1.0.pdf) | Individual Presentation slides (PDF, Unit 11 final submission) | LO1, LO2, LO3 |
 | [E11.2](/eportfolio-uoe/code/individual-presentation/deliverables/transcript_final_v1.0.pdf) | Individual Presentation speaker transcript (PDF, Unit 11 final submission) | LO1, LO2, LO3 |
-| [E11.3](https://github.com/protode908/eportfolio-uoe/tree/main/code/individual-presentation/notebook) | Individual Presentation notebook bundle on GitHub (Unit 11 final submission) | LO2, LO3 |
+| [E11.3](https://github.com/protode908/eportfolio-uoe/tree/main/code/individual-presentation/notebook) | Individual Presentation notebook bundle on GitHub (Unit 11 final submission) | LO1, LO2, LO3 |
 
 ### Team Project: Project Report (Unit 6) - Track 1 Airbnb Business Analysis
 
