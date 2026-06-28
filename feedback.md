@@ -80,7 +80,7 @@ Towards the end of the project, a peer acknowledged the final report finalisatio
 
 ## Individual Presentation (Unit 11) - tutor grade and feedback
 
-*Placeholder - tutor grade and feedback to be added once received after the 5 July 2026 submission.*
+*TBD.*
 
 ## What I take from this feedback
 

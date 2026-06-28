@@ -51,4 +51,4 @@ Three lessons learned shaped the work. **The Keras `trainable` flag** was not a 
 
 ## Feedback
 
-*Placeholder - tutor grade and feedback to be added once received.*
+*TBD.*

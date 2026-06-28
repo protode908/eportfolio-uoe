@@ -302,7 +302,7 @@ cards:
   title: 'Graded assignment - Individual Project: Presentation'
   activity: '"Deliver a 20-minute individual presentation comparing classical machine learning and deep learning on a chosen problem, with critical evaluation, explainability and an ethics section. Submission 5 July 2026." (University of Essex Online, n.d.)'
   description: 'My Individual Presentation: paediatric chest X-ray classification compared across classical ML (HOG features + SVM) and deep learning (ResNet50 transfer learning).'
-  feedback: Placeholder - tutor grade and feedback to be added once received.
+  feedback: 'Tutor feedback goes here. Once I receive it, I will add it. There is a high chance, due to how feedback / grading timing usually works and the submission deadline for this e-Portfolio, that the feedback never reaches this branch. This is the frozen e-Portfolio submission branch as per assignment instructions, at the time of e-Portfolio delivery.'
   feature: true
   feature_pill: INDIVIDUAL
   deep_page: /projects/individual-project/
