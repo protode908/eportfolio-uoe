@@ -210,6 +210,30 @@ cards:
   key_takeaway: 'Linear separation works for AND, not XOR. A hidden layer with non-linear activation is what unlocks the harder problem.'
   collapse_reflection: true
   artefact: 'Three perceptron notebooks: simple, AND, multi-layer XOR with sigmoid. Evidence: E7.P1-E7.P3.'
+- id: unit8-gradient-cost
+  unit: '8'
+  title: 'e-Portfolio Activity Unit 8: Gradient Cost Function'
+  activity: '"Read the Mayo (2017) article and run the gradient_descent_cost_function.ipynb tutorial. Change the iteration number and learning rate and observe how cost decreases." (University of Essex Online, n.d.)'
+  description: 'Gradient descent tutorial with iteration and learning rate parameter sweeps.'
+  body: ''
+  micro_what: 'Ran the tutorial sweeping iterations (50, 100, 200) and learning rate (0.08, 0.16) to see how cost decreases.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'Iterations balance overfitting against missing the minimum; learning rate balances step size against overshoot. Doubling either does not always improve convergence.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'Watch convergence behaviour.'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+  key_takeaway: 'Convergence behaviour is the signal.'
+  collapse_reflection: true
+  artefact: 'Gradient cost function tutorial with iteration / learning rate sweep. Evidence: E8.G1.'
 - id: unit8-seminar
   unit: '8'
   title: 'Seminar Unit 8: Comparing Machine Learning, Deep Learning and Ethical Impact in Practice'
