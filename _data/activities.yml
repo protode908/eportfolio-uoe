@@ -86,6 +86,28 @@ cards:
   collapse_reflection: true
   artefact: 'Four notebooks (correlation, linear, multiple linear, polynomial), each with default and variable-change run. Evidence: E3.1-E3.4.'
   body_label: Show results
+- id: unit5-jaccard
+  unit: '5'
+  title: 'e-Portfolio Activity Unit 5: Jaccard Distance Calculations'
+  activity: '"Calculate Jaccard distance / dissimilarity for the three pairs (Jack, Mary), (Jack, Jim), (Jim, Mary) from the pathological test table." (University of Essex Online, n.d.)'
+  description: 'Jaccard distance / dissimilarity on a small pathological test table.'
+  body: ''
+  micro_what: 'Calculated Jaccard distance for the three pairs from the test table.'
+  micro_what_lo:
+  - LO2
+  micro_so_what: 'J counts intersection over union; distance is 1 - J. Asymmetric attributes drive the score, symmetric ones like gender drop out.'
+  micro_so_what_lo:
+  - LO2
+  micro_now_what: 'Presence-based similarity baseline. Asymmetry is what matters.'
+  micro_now_what_lo:
+  - LO2
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+  key_takeaway: 'Similarity by attribute presence, not by symmetry. The asymmetric attributes are where the signal sits.'
+  collapse_reflection: true
+  artefact: 'Jaccard distance calculation on three pairs. Evidence: E5.J1.'
 - id: unit6-team-project
   unit: 1-6
   title: 'Graded assignment - Team Project: Project Report'
@@ -164,6 +186,30 @@ cards:
   micro_so_what: ''
   micro_now_what: ''
   key_takeaway: 'When I was mid-module through, the learned content clicked and moved information into knowledge a bit more. All started to get through together, clicked. My experience in professional life, the learning I had and the more academic side which I''m not used to came together. Understanding AI as the conceptual basis (specifically the DeutschFin Probability of Default proof of concept in WEKA, where I had compared Logistic Regression, J48 and RandomForest on the UCI German Credit dataset under 10-fold cross-validation and a 70/30 hold-out test, and had argued on paper for SHAP reason codes on the broader credit-scoring case), Launch into Computing as the engineering toolkit, Numerical Analysis as the mathematical and statistics grounding, and the Machine Learning module itself as the hands-on deep learning teaching. In concrete terms: my architect and engineering experience came through when designing the notebooks and scripts for both the Team Project pipeline and the Individual Presentation; my project-management experience shaped the coordinator role and meeting cadence on the group activity; the Numerical Analysis grounding taught me how to communicate through plots and visualisations, used heavily in both the Team Project EDA work and the Individual Project subgroup-analysis figures; the Understanding AI conceptual basis sat right under the classical-versus-deep-learning comparison on the Individual Presentation - the interpretable-versus-higher-capacity trade-off I had first seen between Logistic and RandomForest in WEKA came back as the HOG + SVM versus ResNet50 head-to-head on chest X-rays, and the SHAP reason codes I had argued for on paper turned into a SHAP-style decomposition I actually computed in Unit 8 and then into occlusion-sensitivity heatmaps on the Individual Project; the Machine Learning module''s hands-on teaching of CNNs and transfer learning was the direct foundation for the ResNet50 transfer-learning work on the Individual Project; and the critical thinking I sharpened with the tutor feedback on the Team Project became the framing for how I justified every modelling choice on the Individual Presentation. The deep-learning weeks were where everything connected. So the module turned curiosity into momentum and engagement with what I could research in the Individual Presentation: specifically X-rays, pneumonia diagnosis, machine learning applied to medical images, and deep learning for image classification.'
+- id: unit7-perceptron
+  unit: '7'
+  title: 'e-Portfolio Activity Unit 7: Perceptron Activities'
+  activity: '"Run three Python activities in order: simple_perceptron.ipynb; perceptron_AND_operator.ipynb; multi-layer Perceptron.ipynb (Sigmoid Function)." (University of Essex Online, n.d.)'
+  description: 'Three perceptron notebooks: simple, AND operator, multi-layer XOR with sigmoid activation.'
+  body: ''
+  micro_what: 'Ran the three notebooks: simple perceptron, AND operator on a single layer, and XOR via multi-layer with sigmoid activation.'
+  micro_what_lo:
+  - LO2
+  - LO3
+  micro_so_what: 'Single-layer handles AND; XOR needs a hidden layer with non-linear activation. Learning rate and epoch count drive convergence.'
+  micro_so_what_lo:
+  - LO2
+  - LO3
+  micro_now_what: 'Foundation for the CNN weeks ahead.'
+  micro_now_what_lo:
+  - LO3
+  feature: false
+  deep_page: ''
+  links: []
+  status: complete
+  key_takeaway: 'Linear separation works for AND, not XOR. A hidden layer with non-linear activation is what unlocks the harder problem.'
+  collapse_reflection: true
+  artefact: 'Three perceptron notebooks: simple, AND, multi-layer XOR with sigmoid. Evidence: E7.P1-E7.P3.'
 - id: unit8-seminar
   unit: '8'
   title: 'Seminar Unit 8: Comparing Machine Learning, Deep Learning and Ethical Impact in Practice'
