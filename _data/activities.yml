@@ -91,6 +91,9 @@ cards:
   title: 'e-Portfolio Activity Unit 5: Jaccard Distance Calculations'
   activity: '"Calculate Jaccard distance / dissimilarity for the three pairs (Jack, Mary), (Jack, Jim), (Jim, Mary) from the pathological test table." (University of Essex Online, n.d.)'
   description: 'Jaccard distance / dissimilarity on a small pathological test table.'
+  figure: /assets/images/unit-5/jaccard_heatmap.png
+  figure_alt: Jaccard coefficient matrix for the three patients
+  figure_caption: 'Jaccard coefficient matrix. E5.J1'
   body: ''
   micro_what: 'Calculated Jaccard distance for the three pairs from the test table.'
   micro_what_lo:
@@ -103,7 +106,9 @@ cards:
   - LO2
   feature: false
   deep_page: ''
-  links: []
+  links:
+  - url: /assets/images/unit-5/jaccard_decomposition.png
+    label: JACCARD DECOMPOSITION
   status: complete
   key_takeaway: 'Similarity by attribute presence, not by symmetry. The asymmetric attributes are where the signal sits.'
   collapse_reflection: true
@@ -191,6 +196,9 @@ cards:
   title: 'e-Portfolio Activity Unit 7: Perceptron Activities'
   activity: '"Run three Python activities in order: simple_perceptron.ipynb; perceptron_AND_operator.ipynb; multi-layer Perceptron.ipynb (Sigmoid Function)." (University of Essex Online, n.d.)'
   description: 'Three perceptron notebooks: simple, AND operator, multi-layer XOR with sigmoid activation.'
+  figure: /assets/images/unit-7/xor_error_curve.png
+  figure_alt: Multi-layer perceptron XOR training error curve
+  figure_caption: 'Multi-layer perceptron XOR error. E7.P1'
   body: ''
   micro_what: 'Ran the three notebooks: simple perceptron, AND operator on a single layer, and XOR via multi-layer with sigmoid activation.'
   micro_what_lo:
@@ -205,7 +213,11 @@ cards:
   - LO3
   feature: false
   deep_page: ''
-  links: []
+  links:
+  - url: /assets/images/unit-7/simple_perceptron_summary.png
+    label: EX1+2 SUMMARY
+  - url: /assets/images/unit-7/xor_decision_surface.png
+    label: XOR DECISION SURFACE
   status: complete
   key_takeaway: 'Linear separation works for AND, not XOR. A hidden layer with non-linear activation is what unlocks the harder problem.'
   collapse_reflection: true
@@ -215,6 +227,9 @@ cards:
   title: 'e-Portfolio Activity Unit 8: Gradient Cost Function'
   activity: '"Read the Mayo (2017) article and run the gradient_descent_cost_function.ipynb tutorial. Change the iteration number and learning rate and observe how cost decreases." (University of Essex Online, n.d.)'
   description: 'Gradient descent tutorial with iteration and learning rate parameter sweeps.'
+  figure: /assets/images/unit-8/gradient_descent_lr_comparison.png
+  figure_alt: Cost vs iteration for four learning rates
+  figure_caption: 'Gradient descent cost function. E8.G1'
   body: ''
   micro_what: 'Ran the tutorial sweeping iterations (50, 100, 200) and learning rate (0.08, 0.16) to see how cost decreases.'
   micro_what_lo:
@@ -229,7 +244,9 @@ cards:
   - LO3
   feature: false
   deep_page: ''
-  links: []
+  links:
+  - url: /assets/images/unit-8/gradient_descent_iter_sweep.png
+    label: ITER SWEEP
   status: complete
   key_takeaway: 'Convergence behaviour is the signal.'
   collapse_reflection: true
@@ -367,6 +384,38 @@ cards:
   key_takeaway: 'Softmax confidence does not know what it does not know. The three weaknesses seen here became the design template for the Individual Presentation subgroup analysis.'
   artefact: 'CNN Explainer Tiny VGG four-input experiment and per-case results panels. Evidence: E10.0-E10.4.'
   body_label: Show results table
+- id: unit11-model-performance
+  unit: '11'
+  title: 'e-Portfolio Activity Unit 11: Model Performance Measurement'
+  activity: '"Run the model_Performance_Measurement.ipynb file and change different parameters and observe its impact on AUC and R2 error." (University of Essex Online, n.d.)'
+  description: 'Classification and regression metrics with parameter-change exercises on AUC and R².'
+  figure: /assets/images/unit-11/auc_signal_noise.png
+  figure_alt: ROC curves across signal-to-noise margins
+  figure_caption: 'ROC curves across signal-to-noise margins. E11.J1'
+  body: ''
+  micro_what: 'Ran the tutorial with parameter sweeps on AUC (signal-to-noise margins) and R² (polynomial degrees).'
+  micro_what_lo:
+  - LO1
+  - LO3
+  micro_so_what: 'AUC is threshold-free; the confusion matrix at the chosen threshold sets the operating point. Train R² hides overfitting; test R² peaks at the right capacity then falls.'
+  micro_so_what_lo:
+  - LO1
+  - LO3
+  micro_now_what: 'Dual-metric reporting: AUC + confusion matrix for classification; train and test R² for regression.'
+  micro_now_what_lo:
+  - LO1
+  - LO3
+  feature: false
+  deep_page: ''
+  links:
+  - url: /assets/images/unit-11/confusion_matrix.png
+    label: CONFUSION MATRIX
+  - url: /assets/images/unit-11/r2_polynomial_degree.png
+    label: R² VS DEGREE
+  status: complete
+  key_takeaway: 'Metric choice is an ethics decision when cost asymmetry is real.'
+  collapse_reflection: true
+  artefact: 'AUC and R² parameter-change exercises with confusion matrix. Evidence: E11.J1-E11.J3.'
 - id: unit11-cnn-object-recognition
   unit: '11'
   title: 'Graded assignment - Individual Project: Presentation'
