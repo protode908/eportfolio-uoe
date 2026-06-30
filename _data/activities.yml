@@ -205,10 +205,10 @@ cards:
   micro_what: 'Initial post on LLM evolution and massification, benefits and cognitive-outsourcing concerns, analysis of Hutson (2021) article on robo-writers. Two peer responses focusing on AI disclosure transparency, intellectual property and copyright. Summary post bringing all together with a summary on governance gap and socio-technical focus in line with Industry 5.0.'
   micro_what_lo:
   - LO1
-  micro_so_what: 'The CD1 implementation-gap framing translates to CD2 as the regulation gap. Ethics is not generic. It has to name the specific risks of the chosen application. Building this card incrementally avoids the late-in-the-week scramble I had with CD1 responses.'
+  micro_so_what: 'The CD1 implementation-gap framing translates to CD2 as the governance gap. Ethics is not generic. It has to name the specific risks of the chosen application. Building this card incrementally avoids the late-in-the-week scramble I had with CD1 responses.'
   micro_so_what_lo:
   - LO1
-  micro_now_what: 'Bring ethics into the opening framing from the start. Applied in the reflection essay §3.3: ethics gets specific named risks for the application.'
+  micro_now_what: 'Bring ethics into the opening framing from the start. Applied in the reflection essay Section 3.3: ethics gets specific named risks for the application. Next steps forward work: measure the equation of benefits and rewards versus cost, including intangible ones.'
   micro_now_what_lo:
   - LO1
   feature: false
@@ -329,7 +329,7 @@ cards:
   micro_so_what_lo:
   - LO1
   - LO3
-  micro_now_what: 'Keep watching the SSL / NAS / Edge AI thread as it matures into industrial-grade tooling. Sustainability is increasingly a deployment concern. Applied in the reflection essay §3.3 (deployment-as-process) and §4 (deployment-cost as a follow-up consideration).'
+  micro_now_what: 'Keep watching the SSL / NAS / Edge AI thread as it matures into industrial-grade tooling. Sustainability is increasingly a deployment concern. Applied in the reflection essay Section 3.3 (deployment-as-process) and Section 4 (deployment-cost as a follow-up consideration).'
   micro_now_what_lo:
   - LO1
   - LO3

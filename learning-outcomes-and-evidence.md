@@ -29,10 +29,10 @@ A high-level summary mapping each module learning outcome to the cards and work 
 
 | LO | Primary cards / work products |
 |---|---|
-| **LO1** (legal, social, ethical, professional) | CD1, CD2, Unit 8 seminar (recommender ethics), Unit 9 (face-recognition disparity), Unit 10 (CNN Explainer dataset bias), Individual Presentation (ethics section, threshold-as-clinical-value), reflection essay §3.3 |
+| **LO1** (legal, social, ethical, professional) | CD1, CD2, Unit 8 seminar (recommender ethics), Unit 9 (face-recognition disparity), Unit 10 (CNN Explainer dataset bias), Individual Presentation (ethics section, threshold-as-clinical-value), reflection essay Section 3.3 |
 | **LO2** (datasets, applicability and challenges) | Unit 2 (Auto-mpg EDA), Unit 3 (correlation and regression), Unit 6 K-means tutorial, Unit 9 (CIFAR-10), Unit 10 (CNN Explainer four-input experiment), Team Project (AB_NYC_2019 with limitations), Individual Presentation (paediatric chest X-ray with subgroup analysis) |
-| **LO3** (apply and critically appraise ML techniques) | Unit 3 (regression generalisation check), Unit 6 K-means tutorial, Unit 8 seminar (ML vs DL + attribution), Unit 9 (CNN training), Team Project (CRISP-DM five-stage pipeline), Individual Presentation (HOG+SVM vs ResNet50, design rationale with 21 decisions), reflection essay §3.1 |
-| **LO4** (effective team member) | Team Project (Coordinator role, peer-review-distilled team dynamics), Professional Development (Skills Matrix + PDP), reflection essay §3.2 |
+| **LO3** (apply and critically appraise ML techniques) | Unit 3 (regression generalisation check), Unit 6 K-means tutorial, Unit 8 seminar (ML vs DL + attribution), Unit 9 (CNN training), Team Project (CRISP-DM five-stage pipeline), Individual Presentation (HOG+SVM vs ResNet50, design rationale with 21 decisions), reflection essay Section 3.1 |
+| **LO4** (effective team member) | Team Project (Coordinator role, peer-review-distilled team dynamics), Professional Development (Skills Matrix + PDP), reflection essay Section 3.2 |
 
 ### LO mapping table (by evidence)
 
