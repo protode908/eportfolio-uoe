@@ -44,11 +44,9 @@ Six development goals targeting the rows where I sit at Aware or Trained, plus s
 | Deep Learning | Trained -> Proficient | Self-led CNN project; read a foundational deep-learning textbook end-to-end. | 6 months |
 | Python production ML | Trained -> Proficient | Deploy a small ML service with CI/CD on a personal project. | 6 months |
 | Explainability | Trained -> Proficient | Apply SHAP and Integrated Gradients to one deployed model with a written case-study comparing them. | 6 months |
-| Ethical Awareness | Proficient -> Expert | One position paper on dual-use CNN deployment; monthly EU AI Act tracking. | 12 months |
-| Research | Proficient -> Expert | One peer-reviewable piece connecting cybersecurity and AI. | 12 months |
+| Ethical Awareness | Proficient -> Expert | Expand reading to papers with for example dual-use like CNN deployment; follow regulatories like EU AI Act development. | 12 months |
+| Research | Proficient -> Expert | Potential prepare thesis project as one day paper. | 36 months |
 | Critical Reflection | Proficient -> Expert | Monthly reflective journal post-MSc; decision-log note written on one significant decision per quarter. | Ongoing |
-
-*Reviewed and committed by Ariel Mella, 17 May 2026 (v1.1). Next review: end of MSc programme.*
 
 ## Feedback
 
